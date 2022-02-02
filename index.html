@@ -29,13 +29,13 @@
 
     <nav class="top-0 absolute z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 ">
       <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
-        <div class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
+        <div class="w-full text-white relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
           <!-- Title -->
           <a> JUNIOR DEV HUB &nbsp; < / > </a>
             
           <!-- When the screen size is smaller, the nav bar will collapse into a hamburger (see Javascript for function)-->
             <button class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
-            type="button" onclick="toggleNavbar('example-collapse-navbar')"> <i class="text-black fas fa-bars"></i>
+            type="button" onclick="toggleNavbar('example-collapse-navbar')"> <i class="text-white fas fa-bars"></i>
            </button>
         </div>
 
@@ -47,14 +47,14 @@
             <!-- Browse Jobs -->
             <li class="flex items-center">
               <a
-                class="lg:text-black lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
                 href=""> Browse Jobs </a>
             </li>
 
             <!-- Career Advice -->
             <li class="flex items-center">
               <a
-                class="lg:text-black lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
                 href=""> Career Advice </a>
             </li>
           </ul>
@@ -65,8 +65,25 @@
     </nav>
 
 
+                                                             <!-- Main -->
+
+
+ <main>
 
     <!-- Hero Section -->
+    <section class="relative block" style="height: 500px;">
+      <!-- Hero Image -->
+      <div
+        class="absolute top-0 w-full h-full bg-center bg-cover"
+        style='background-image: url("https://images.unsplash.com/photo-1594398985750-3b54ec074a0a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");'
+      >
+      <!-- This adds a black overlay on the background image to make it stand out less-->
+        <span
+          id="blackOverlay"
+          class="w-full h-full absolute opacity-50 bg-black">
+        </span>
+      </div>
+    </section>
 
     <!-- Search Form Section -->
 
