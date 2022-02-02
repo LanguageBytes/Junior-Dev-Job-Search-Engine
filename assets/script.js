@@ -1,1 +1,8 @@
 console.log("hello");
+
+
+// Collapses Nav Bar on a smaller screen
+function toggleNavbar(collapseID) {
+    document.getElementById(collapseID).classList.toggle("hidden");
+    document.getElementById(collapseID).classList.toggle("block");
+  }

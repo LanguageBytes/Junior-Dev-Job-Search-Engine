@@ -1,1 +1,1 @@
-# Junior-Dev-Job-Search-Engine
+# <p align = "center" > Junior Developer Job Search Engine </p>
