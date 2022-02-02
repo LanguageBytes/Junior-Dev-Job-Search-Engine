@@ -1,3 +1,5 @@
-.background-img {
-    background-image: url("/assets/images/hero.jpg");
+
+.justify-center {
+    text-align: center;
+    justify-content: center;
 }

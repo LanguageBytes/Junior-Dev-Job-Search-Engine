@@ -15,12 +15,12 @@
     <meta name="author" content="Carla Brown, Emily Mckibben, Sarah Lloyd">
     
     <!-- Stylesheets -->
+    <link rel="stylesheet" type="css" href="assets/styles.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     
       <!-- Creative Tim Tailwind Starter Kit -->
     <link rel="stylesheet"href="https://cdn.jsdelivr.net/gh/creativetimofficial/tailwind-starter-kit/compiled-tailwind.min.css"/>
-    <link rel="stylesheet" type="css" href="assets/styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
   </head>
 
   <body>
@@ -85,33 +85,51 @@
       </div>
     </section>
 
+
                                                      <!-- Search Form Section -->
 
-    <!--  Container -->
+                                                
     <section class="container max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md">
-     
       <h2 class="text-lg font-semibold text-gray-700 dark:text-white"> Search for a job </h2>
 
-    <!-- Search Form -->
+     <!-- Search by Job Type-->
       <form>
           <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
             
-              <input type="text" class="w-full py-3 pl-10 pr-4 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" placeholder="Search">
-
+              <input type="text" id="job-type-input" class="w-full py-3 pl-10 pr-4 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" placeholder="Search by job type">
           </div>
-     
-          <!-- Search Button -->
-          <div class="flex justify-end mt-6">
-              <button class="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600"> Search </button>
-          </div>
-      </form>
 
+       <!--Search by location -->
+      <form>
+        <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
+          
+            <input type="text" id="location-input" class="w-full py-3 pl-10 pr-4 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" placeholder="Search by location">
+
+        </div>
+
+        <!-- Search Button -->
+        <div class="flex justify-end mt-6">
+            <button id ="search-button" class="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600"> Search </button>
+        </div>
+    </form>
+
+      </div>
   </section>
   </main>
 
                                                          <!-- Footer Section -->
 
-<footer></footer>
+<footer>
+
+  <section class="container max-w-4xl p-6 mx-auto bg-gray-800 rounded-md shadow-md">
+     
+    <p class="text-white justify-center"> Contact us
+  </p>
+
+  <br> <br> <br>
+</section>
+</main>
+</footer>
 
 
 
@@ -137,5 +155,6 @@
 
 
     <script src="assets/script.js"></script>
+
   </body>
 </html>
