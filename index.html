@@ -15,12 +15,11 @@
     <meta name="authors" content="Carla Brown, Emily Mckibben, Sarah Lloyd">
     
     <!-- Stylesheets -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="css" href="assets/styles.css" />
-    
       <!-- Creative Tim Tailwind Starter Kit -->
-    <link rel="stylesheet"href="https://cdn.jsdelivr.net/gh/creativetimofficial/tailwind-starter-kit/compiled-tailwind.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="assets/style.css" />
+    <link rel="stylesheet" href="assets/compiled-tailwind.css">
+
+
   </head>
 
   <body>
@@ -45,11 +44,16 @@
           id="example-collapse-navbar">
      
           <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
+            <!-- Search-->
+            <li class="flex items-center">
+              <a
+                class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                href=""> Search </a>
             <!-- Browse Jobs -->
             <li class="flex items-center">
               <a
                 class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                href=""> Browse Jobs </a>
+                href="search-results.html"> Browse Jobs </a>
             </li>
 
             <!-- Career Advice -->
@@ -117,7 +121,7 @@
 
     <section class="w-full p-6 mx-auto bg-gray-800 rounded-md shadow-md">
        
-      <p class="text-white justify-center"> About
+      <p class="text-white"> About
     </p>
   
     <br> <br> <br>
@@ -131,7 +135,7 @@
 
   <section class="w-full p-6 mx-auto bg-white-800 rounded-md shadow-md">
      
-    <p class="text-black justify-center"> Contact us
+    <p"> Contact us
   </p>
 
   <br> <br> <br>
