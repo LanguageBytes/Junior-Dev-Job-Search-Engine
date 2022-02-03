@@ -16,13 +16,15 @@
     
     <!-- Stylesheets -->
      <!-- Creative Tim Tailwind Starter Kit -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/creativetimofficial/tailwind-starter-kit/compiled-tailwind.css">
+    <link rel="stylesheet" href="assets/compiled-tailwind.css">
+    <!-- Font Awesome (for Icons) -->
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <link rel="stylesheet" href="assets/style.css" />
 
 
   </head>
 
-                                            <!-- Nav Bar -->
+                                                            <!-- Nav Bar -->
   <nav class="top-0 absolute z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 ">
     <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
       <div class="w-full text-black relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
@@ -32,40 +34,97 @@
           
         <!-- When the screen size is smaller, the nav bar will collapse into a hamburger (see Javascript for function)-->
           <button class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
-          type="button" onclick="toggleNavbar('example-collapse-navbar')"> <i class="text-white fas fa-bars"></i>
+          type="button" onclick="toggleNavbar('example-collapse-navbar')"> <i class="text-black fas fa-bars"></i>
          </button>
       </div>
 
       <!-- Nav Right-hand Side -->
-      <div class="lg:flex flex-grow items-center bg-black lg:bg-transparent lg:shadow-none hidden"
+      <div class="lg:flex flex-grow items-center lg:bg-transparent bg-blueGray-200 lg:shadow-none hidden"
         id="example-collapse-navbar">
    
-        <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
+        <ul class="flex flex-col lg:flex-row list-none lg:ml-auto ">
 
            <!-- Search-->
           <li class="flex items-center">
             <a
-              class="lg:text-black lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+              class="lg:text-black lg:hover:text-gray-300 text-black px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
               href="index.html"> Search </a>
           </li>
 
           <!-- Browse Jobs -->
           <li class="flex items-center">
             <a
-              class="lg:text-black lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+              class="lg:text-black lg:hover:text-gray-300 text-black px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
               href=""> Browse Jobs </a>
           </li>
 
           <!-- Career Advice -->
           <li class="flex items-center">
             <a
-              class="lg:text-black lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+              class="lg:text-black lg:hover:text-gray-300 text-black px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
               href=""> Career Advice </a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
+
+
+  <main>
+                                                         <!-- Jobs List -->
+    <div class="relative bg-white-600 md:pt-32 pb-32 pt-12">
+      <div class="px-4 md:px-10 mx-auto w-full">
+        
+
+
+              <!-- Jobs List -->
+              <table class="items-center w-full bg-transparent border-collapse">
+                <thead>
+                  <tr>
+                    <th class="px-6 p-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold">
+                      <p-6> Jobs </p>
+                    </th>
+                  </tr>
+                </thead>
+
+                <!-- Where the Results will be displayed -->
+                <tbody id="results">
+                  <tr>
+                    <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                      Job listings will be displayed in here
+                    </th>
+                  </tr>
+                  
+                 
+                </tbody>
+              </table>
+
+
+        </div>
+      </div>
+      </main>
+      
+    
+
+                                                   <!-- Side Bar to go either here or above Jobs List -->       
+                                                             
+                                                             
+
+
+
+                                                           <!-- Footer Section -->
+
+
+                                                                               
+<footer>
+
+<section class="w-full p-6 bg-gray-600 rounded-md shadow-md">
+
+   </section>
+    
+   <p class="p-6 align-text-middle"> Contact us </p>
+</footer>
+
 
   <script src="assets/script.js"></script>
   <body>
