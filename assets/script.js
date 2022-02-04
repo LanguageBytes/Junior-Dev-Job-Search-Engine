@@ -36,21 +36,21 @@ function toggleNavbar(collapseID) {
 }
 
 //Adzuna URL (with example search) and info for requests
-var applicationID = "2967701c";
-var apiKey = "fe89d5a2c6186ae38284bc35150dce01";
-var jobType = "";
-var location = "";
+// var applicationID = "2967701c";
+// var apiKey = "fe89d5a2c6186ae38284bc35150dce01";
+// var jobType = "";
+// var location = "";
 
-var adzunaURL =
-  "https://api.adzuna.com/v1/api/jobs/gb/search/?app_id=" +
-  applicationID +
-  "&app_key=" +
-  apiKey +
-  "&results_per_page=20&what=" +
-  jobType +
-  "&where=" +
-  location +
-  "&content-type=application/json";
+// var adzunaURL =
+//   "https://api.adzuna.com/v1/api/jobs/gb/search/?app_id=" +
+//   applicationID +
+//   "&app_key=" +
+//   apiKey +
+//   "&results_per_page=20&what=" +
+//   jobType +
+//   "&where=" +
+//   location +
+//   "&content-type=application/json";
 
 //fetch request to view array of jobs
 // fetch(adzunaURL)
