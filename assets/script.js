@@ -22,24 +22,24 @@ console.log("hello");
 
 
 
-//  Adzuna URL (with example search) and info for requests
- var applicationID = "2967701c";
- var apiKey = "fe89d5a2c6186ae38284bc35150dce01";
- var jobType = "developer";
- var location = "Birmingham";
+// //  Adzuna URL (with example search) and info for requests
+//  var applicationID = "2967701c";
+//  var apiKey = "fe89d5a2c6186ae38284bc35150dce01";
+//  var jobType = "developer";
+//  var location = "Birmingham";
 
-var adzunaURL = "https://api.adzuna.com/v1/api/jobs/gb/search/?app_id=" + applicationID + "&app_key=" + apiKey + "&results_per_page=20&what=" + jobType +"&where=" + location + "&content-type=application/json";
+// var adzunaURL = "https://api.adzuna.com/v1/api/jobs/gb/search/?app_id=" + applicationID + "&app_key=" + apiKey + "&results_per_page=20&what=" + jobType +"&where=" + location + "&content-type=application/json";
 
 
-https://api.adzuna.com/v1/api/jobs/gb/search/?app_id=2967701c&app_key=fe89d5a2c6186ae38284bc35150dce01&results_per_page=20&what=software&where=birmingham&content-type=application/json"
 
-// fetch request to view array of jobs
- fetch(adzunaURL)
-.then(function (res) {
-return res.json();})
-.then(function (jobs) {
-console.log(jobs);
-});
+
+// // fetch request to view array of jobs
+//  fetch(adzunaURL)
+// .then(function (res) {
+// return res.json();})
+// .then(function (jobs) {
+// console.log(jobs);
+// });
 
 
 // Collapses Nav Bar on a smaller screen
