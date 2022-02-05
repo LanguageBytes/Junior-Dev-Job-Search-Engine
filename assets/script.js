@@ -34,7 +34,7 @@ var makeSearch = function (event) {
   window.location.href="search-results.html"
 };
 
-//Event listener for submit button
+//Event listener for search button
 searchButton.addEventListener("click", makeSearch)
 
 
@@ -51,6 +51,9 @@ var keywords = "junior%20developer";
 // var location = "london";
 
 // var distance = "100";
+
+
+// Salary, Job Title, Employers Name, Deadline for Application
 
 var corsAnywhereLink = "https://radiant-stream-08604.herokuapp.com/";
 
