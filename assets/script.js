@@ -67,7 +67,7 @@ function initMap() {
 
 
 // Console Test
-main
+
 console.log("hello");
 
                                              // Get Jobs
