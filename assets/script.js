@@ -1,22 +1,29 @@
 //Displays Google Maps
 let map;
 let wednesburyLatLong = { lat: 52.5529, lng: -2.0221 };
-const hockley = { lat: 52.49289, lng: -1.91285 };
+const softcat = { lat: 52.482575, lng: -1.91285 };
+const cisco = { lat: 51.518464, lng: -0.086249 };
 
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
     center: wednesburyLatLong,
-    zoom: 9,
+    zoom: 10,
     mapId: "76d2f6e69ab59646",
-  });
-
-  //Marker
-  const marker = new google.maps.Marker({
-    position: hockley,
-    label: "Apple",
-    map: map,
+  
   });
 }
+
+
+  //Marker
+  function addMarker() {
+    const marker = new google.maps.Marker({
+      position: softcat,
+      label: "softcat",
+      map: map,
+    });
+  }
+ 
+
 
 console.log("hello");
 
