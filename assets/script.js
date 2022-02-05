@@ -31,6 +31,7 @@ function initMap() {
   const marker2 = new google.maps.Marker({
     position: salesForce,
     // label: "Salesforce",
+<<<<<<< HEAD
     map: map,
   });
 
@@ -46,6 +47,23 @@ function initMap() {
     map: map,
   });
 
+=======
+    map: map,
+  });
+
+  const marker3 = new google.maps.Marker({
+    position: sap,
+    // label: "sap",
+    map: map,
+  });
+
+  const marker4 = new google.maps.Marker({
+    position: fti,
+    // label: "fti",
+    map: map,
+  });
+
+>>>>>>> fb121353865531da7c2bc90c9991fcbeae81e2c9
   const marker5 = new google.maps.Marker({
     position: sapKnutsford,
     // label: "Sap",
@@ -66,7 +84,16 @@ function initMap() {
   //}
  
 
+ Carlas-Branch
+//Marker
+  // function addMarker() {
+  //}
+ 
+
+
+=======
 // Console Test
+main
 console.log("hello");
 
                                              // Get Jobs
