@@ -1,4 +1,3 @@
-
 //Displays Google Maps
 let map;
 let wednesburyLatLong = { lat: 52.5529, lng: -2.0221 };
@@ -22,7 +21,6 @@ function initMap() {
 console.log("hello");
 
 //HTML id variables
-var jobTypeInput = document.getElementById("job-type-input")
 var locationInput = document.getElementById ("location-input")
 var searchButton = document.getElementById ("search-button")
 var results = document.getElementById("results")
@@ -75,7 +73,7 @@ var corsAnywhereLink = "https://radiant-stream-08604.herokuapp.com/";
 var queryURL =
   corsAnywhereLink +
   "https://www.reed.co.uk/api/1.0/search?keywords=" +
-  keywords + "&locationName=" + userLocationInput;
+  keywords + "&locationName=" + userLocationInput + "&distanceFromLocation=" + 10;
 // "&locationName=" +
 // location +
 // "&distanceFromLocation=" +
