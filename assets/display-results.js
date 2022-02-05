@@ -53,8 +53,11 @@ function getJobs() {
 
     var jobTypeEl = document.createElement("h4");
     jobTypeEl.textContent = results[i].jobTitle;
+    //link here for next page if click on job title
+    // var jobLinkEl = document.createElement("a");
+    // jobLinkEl.setAttribute("src", "result page");
+    // jobTypeEl.append(jobLinkEl);
     resultCard.append(jobTypeEl);
-    //add href attribute here to link to further job details page
 
     var locationEl = document.createElement("div");
     locationEl.textContent = "Location: " + results[i].locationName;
