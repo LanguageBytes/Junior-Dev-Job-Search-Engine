@@ -1,3 +1,4 @@
+
 //Displays Google Maps
 let map;
 let wednesburyLatLong = { lat: 52.5529, lng: -2.0221 };
@@ -21,15 +22,9 @@ function initMap() {
 console.log("hello");
 
 //HTML id variables
-
-var locationInput = document.getElementById("location-input");
-var searchButton = document.getElementById("search-button");
-var results = document.getElementById("results");
-var userLocationInput = locationInput.value.trim();
 var locationInput = document.getElementById ("location-input")
 var searchButton = document.getElementById ("search-button")
 var results = document.getElementById("results")
-
 
 
 // var location = "london";
@@ -39,25 +34,10 @@ var results = document.getElementById("results")
 // Make Search Test
 var makeSearch = function (event) {
   event.preventDefault();
-  console.log("button clicked");
+  console.log ("button clicked")
   // window.location.href="search-results.html"
-
-  userLocationInput = locationInput.value.trim();
-
-  fetch(queryURL, {
-    headers: {
-      Authorization: authHeader,
-    },
-  })
-    .then(jsonResponse)
-    .then(returnJobs);
-};
-
-//Event listener for search button
-searchButton.addEventListener("click", makeSearch);
   var userLocationInput = locationInput.value.trim();
   console.log(userLocationInput)
-
 
   // REED Variables
   var apiKey = "c8be0d68-4d2d-4751-943b-da6b6d189413";
@@ -66,38 +46,11 @@ searchButton.addEventListener("click", makeSearch);
   var keywords = "junior%20developer";
   var corsAnywhereLink = "https://radiant-stream-08604.herokuapp.com/";
 
-var apiKey = "c8be0d68-4d2d-4751-943b-da6b6d189413";
-var encodedKey = btoa(`${apiKey}:`);
-var authHeader = `Basic ${encodedKey}`;
-var keywords = "junior%20developer";
-
-// Salary, Job Title, Employers Name, Deadline for Application
-
-var corsAnywhereLink = "https://radiant-stream-08604.herokuapp.com/";
-
-var queryURL =
-  corsAnywhereLink +
-  "https://www.reed.co.uk/api/1.0/search?keywords=" +
-  keywords +
-  "&locationName=" +
-  userLocationInput +
-  "&distanceFromLocation=" +
-  10;
-
-function jsonResponse(res) {
-  return res.json();
-}
-
-function returnJobs(results) {
-  console.log(results);
-}
-
-function getJobs() {
   var queryURL =
   corsAnywhereLink +
   "https://www.reed.co.uk/api/1.0/search?keywords=" +
   keywords + "&locationName=" + userLocationInput + "&distanceFromLocation=" + 10;
-
+ 
   fetch(queryURL, {
     headers: {
       Authorization: authHeader,
@@ -105,7 +58,6 @@ function getJobs() {
   })
     .then(jsonResponse)
     .then(returnJobs);
-
 
     function jsonResponse(res) {
       return res.json();
@@ -118,7 +70,6 @@ function getJobs() {
 
 //Event listener for search button
 searchButton.addEventListener("click", makeSearch)
-
 
 
 
@@ -136,3 +87,5 @@ function toggleNavbar(collapseID) {
   document.getElementById(collapseID).classList.toggle("py-3");
   document.getElementById(collapseID).classList.toggle("px-6");
 }
+
+
