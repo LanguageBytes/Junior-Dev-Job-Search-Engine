@@ -17,35 +17,60 @@
 // Job description: results[i].jobDescription
 // Apply here/job link: results[i].jobUrl
 
-//for loop
-//create card
-//append each bit of results for list page
+function getJobs() {
+  var apiKey = "c8be0d68-4d2d-4751-943b-da6b6d189413";
+  var encodedKey = btoa(`${apiKey}:`);
+  var authHeader = `Basic ${encodedKey}`;
+  var keywords = "junior%20developer";
+  var corsAnywhereLink = "https://radiant-stream-08604.herokuapp.com/";
+  var queryURL =
+    corsAnywhereLink +
+    "https://www.reed.co.uk/api/1.0/search?keywords=" +
+    keywords +
+    "&locationName=" +
+    userLocationInput +
+    "&distanceFromLocation=" +
+    10;
 
-for (var i = 0; i < results.length; i++) {
-  var resultArea = document.getElementById("results");
-  var resultCard = document.createElement("div");
-  resultCard.classList.add("card-body");
-  resultArea.append(resultCard);
+  // Fetch Request
+  fetch(queryURL, {
+    headers: {
+      Authorization: authHeader,
+    },
+  })
+    .then(function (res) {
+      return res.json();
+    })
+    .then(function (jobs) {
+      console.log(jobs);
+    });
 
-  var jobTypeEl = document.createElement("h4");
-  jobTypeEl.textContent = results[i].jobTitle;
-  resultCard.append(jobTypeEl);
-  //add href attribute here to link to further job details page
+  for (var i = 0; i < results.length; i++) {
+    var resultArea = document.getElementById("results");
+    var resultCard = document.createElement("div");
+    resultCard.classList.add("card-body");
+    resultArea.append(resultCard);
 
-  var locationEl = document.createElement("div");
-  locationEl.textContent = "Location: " + results[i].locationName;
-  resultCard.append(locationEl);
+    var jobTypeEl = document.createElement("h4");
+    jobTypeEl.textContent = results[i].jobTitle;
+    resultCard.append(jobTypeEl);
+    //add href attribute here to link to further job details page
 
-  var employerEl = document.createElement("div");
-  employerEl.textContent = "Employer: " + results[i].employerName;
-  resultCard.append(employerEl);
+    var locationEl = document.createElement("div");
+    locationEl.textContent = "Location: " + results[i].locationName;
+    resultCard.append(locationEl);
 
-  var salaryEl = document.createElement("div");
-  salaryEl.textContent =
-    "Salary: " + results[i].minimumSalary + "-" + results[i].maximumSalary;
-  resultCard.append(salaryEl);
+    var employerEl = document.createElement("div");
+    employerEl.textContent = "Employer: " + results[i].employerName;
+    resultCard.append(employerEl);
 
-  var closingEl = document.createElement("div");
-  closingEl.textContent = results[i].expirationDate;
-  resultCard.append(expirationDate);
+    var salaryEl = document.createElement("div");
+    salaryEl.textContent =
+      "Salary: " + results[i].minimumSalary + "-" + results[i].maximumSalary;
+    resultCard.append(salaryEl);
+
+    var closingEl = document.createElement("div");
+    closingEl.textContent = results[i].expirationDate;
+    resultCard.append(expirationDate);
+  }
 }
