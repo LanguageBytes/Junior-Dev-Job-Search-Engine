@@ -1,3 +1,4 @@
+
 //Displays Google Maps
 let map;
 let wednesburyLatLong = { lat: 52.5529, lng: -2.0221 };
@@ -18,7 +19,68 @@ function initMap() {
   });
 }
 
+
 console.log("hello");
+
+//HTML id variables
+var jobTypeInput = document.getElementById("job-type-input")
+var locationInput = document.getElementById ("location-input")
+var searchButton = document.getElementById ("search-button")
+var results = document.getElementById("results")
+
+var makeSearch = function (event) {
+  event.preventDefault();
+  console.log ("button clicked")
+  window.location.href="search-results.html"
+};
+
+//Event listener for submit button
+searchButton.addEventListener("click", makeSearch)
+
+
+//REED STUFF
+
+var apiKey = "c8be0d68-4d2d-4751-943b-da6b6d189413";
+
+var encodedKey = btoa(`${apiKey}:`);
+
+var authHeader = `Basic ${encodedKey}`;
+
+var keywords = "junior%20developer";
+
+// var location = "london";
+
+// var distance = "100";
+
+var corsAnywhereLink = "https://radiant-stream-08604.herokuapp.com/";
+
+var queryURL =
+  corsAnywhereLink +
+  "https://www.reed.co.uk/api/1.0/search?keywords=" +
+  keywords;
+// "&locationName=" +
+// location +
+// "&distanceFromLocation=" +
+// distance;
+
+function jsonResponse(res) {
+  return res.json();
+}
+
+function returnJobs(results) {
+  console.log(results);
+}
+
+function getJobs() {
+  fetch(queryURL, {
+    headers: {
+      Authorization: authHeader,
+    },
+  })
+    .then(jsonResponse)
+    .then(returnJobs);
+}
+
 
 
 
@@ -57,32 +119,6 @@ document.getElementById(collapseID).classList.toggle("m-2");
 document.getElementById(collapseID).classList.toggle("py-3");
 document.getElementById(collapseID).classList.toggle("px-6");
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
