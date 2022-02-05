@@ -19,7 +19,6 @@ function initMap() {
   });
 }
 
-<<<<<<< HEAD
 
 console.log("hello");
 
@@ -86,11 +85,6 @@ function getJobs() {
 }
 
 
-=======
-//REED STUFF
-
-var apiKey = "c8be0d68-4d2d-4751-943b-da6b6d189413";
->>>>>>> dc8600148de128ac6c2c7d2a31a457deccdacbee
 
 var encodedKey = btoa(`${apiKey}:`);
 
@@ -162,27 +156,7 @@ function toggleNavbar(collapseID) {
   document.getElementById(collapseID).classList.toggle("px-6");
 }
 
-<<<<<<< HEAD
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-=======
->>>>>>> dc8600148de128ac6c2c7d2a31a457deccdacbee
 //Adzuna URL (with example search) and info for requests
 // var applicationID = "2967701c";
 // var apiKey = "fe89d5a2c6186ae38284bc35150dce01";
