@@ -1,3 +1,4 @@
+                                                 // Google Maps
 //Displays Google Maps
 let map;
 let wednesburyLatLong = { lat: 52.5529, lng: -2.0221 };
@@ -61,81 +62,50 @@ function initMap() {
 }
 
 
+ Carlas-Branch
 //Marker
   // function addMarker() {
   //}
  
 
 
+=======
+// Console Test
+main
 console.log("hello");
 
-//HTML id variables
+                                             // Get Jobs
+
+//id variables from HTML
 var locationInput = document.getElementById ("location-input")
 var searchButton = document.getElementById ("search-button")
 var results = document.getElementById("results")
 
-
-// var location = "london";
-// var distance = "100";
-// Salary, Job Title, Employers Name, Deadline for Application
-
-// Make Search Test
+// Make a Search and Get Jobs
 var makeSearch = function (event) {
   event.preventDefault();
   console.log ("button clicked")
   // window.location.href="search-results.html"
+ 
+  // Get search input from user
   var userLocationInput = locationInput.value.trim();
   console.log(userLocationInput)
 
-  // REED Variables
-  var apiKey = "c8be0d68-4d2d-4751-943b-da6b6d189413";
-  var encodedKey = btoa(`${apiKey}:`);
-  var authHeader = `Basic ${encodedKey}`;
-  var keywords = "junior%20developer";
-  var corsAnywhereLink = "https://radiant-stream-08604.herokuapp.com/";
+  if (!userLocationInput) {
+    console.error('You need a search input value!');
+    return;
+  }
 
-  var queryURL =
-  corsAnywhereLink +
-  "https://www.reed.co.uk/api/1.0/search?keywords=" +
-  keywords + "&locationName=" + userLocationInput + "&distanceFromLocation=" + 10;
- 
-  fetch(queryURL, {
-    headers: {
-      Authorization: authHeader,
-    },
-  })
-    .then(jsonResponse)
-    .then(returnJobs);
+  var queryString = './search-results.html?q=' + userLocationInput;
+  location.assign(queryString);
 
-    function jsonResponse(res) {
-      return res.json();
-    }
-    
-    function returnJobs(results) {
-      console.log(results);
-    }
 };
+
 
 //Event listener for search button
 searchButton.addEventListener("click", makeSearch)
 
-
-
-// //  Adzuna URL (with example search) and info for requests
-//  var applicationID = "2967701c";
-//  var apiKey = "fe89d5a2c6186ae38284bc35150dce01";
-//  var jobType = "developer";
-//  var location = "Birmingham";
-
-// var adzunaURL = "https://api.adzuna.com/v1/api/jobs/gb/search/?app_id=" + applicationID + "&app_key=" + apiKey + "&results_per_page=20&what=" + jobType +"&where=" + location + "&content-type=application/json";
-
-// // fetch request to view array of jobs
-//  fetch(adzunaURL)
-// .then(function (res) {
-// return res.json();})
-// .then(function (jobs) {
-// console.log(jobs);
-// });
+                                                  //  HTML Script
 
 // Collapses Nav Bar on a smaller screen
 function toggleNavbar(collapseID) {
@@ -153,28 +123,3 @@ function toggleNavbar(collapseID) {
 }
 
 
-//Adzuna URL (with example search) and info for requests
-// var applicationID = "2967701c";
-// var apiKey = "fe89d5a2c6186ae38284bc35150dce01";
-// var jobType = "";
-// var location = "";
-
-// var adzunaURL =
-//   "https://api.adzuna.com/v1/api/jobs/gb/search/?app_id=" +
-//   applicationID +
-//   "&app_key=" +
-//   apiKey +
-//   "&results_per_page=20&what=" +
-//   jobType +
-//   "&where=" +
-//   location +
-//   "&content-type=application/json";
-
-//fetch request to view array of jobs
-// fetch(adzunaURL)
-//   .then(function (res) {
-//     return res.json();
-//   })
-//   .then(function (jobs) {
-//     console.log(jobs);
-//   });
