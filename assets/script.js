@@ -18,9 +18,48 @@ function initMap() {
   });
 }
 
-console.log("hello");
+//REED STUFF
 
+var apiKey = "c8be0d68-4d2d-4751-943b-da6b6d189413";
 
+var encodedKey = btoa(`${apiKey}:`);
+
+var authHeader = `Basic ${encodedKey}`;
+
+var keywords = "junior%20developer";
+
+// var location = "london";
+
+// var distance = "100";
+
+var corsAnywhereLink = "https://radiant-stream-08604.herokuapp.com/";
+
+var queryURL =
+  corsAnywhereLink +
+  "https://www.reed.co.uk/api/1.0/search?keywords=" +
+  keywords;
+// "&locationName=" +
+// location +
+// "&distanceFromLocation=" +
+// distance;
+
+function jsonResponse(res) {
+  return res.json();
+}
+
+function returnJobs(results) {
+  console.log(results);
+}
+
+function getJobs() {
+  fetch(queryURL, {
+    headers: {
+      Authorization: authHeader,
+    },
+  })
+    .then(jsonResponse)
+    .then(returnJobs);
+}
 
 // //  Adzuna URL (with example search) and info for requests
 //  var applicationID = "2967701c";
@@ -30,9 +69,6 @@ console.log("hello");
 
 // var adzunaURL = "https://api.adzuna.com/v1/api/jobs/gb/search/?app_id=" + applicationID + "&app_key=" + apiKey + "&results_per_page=20&what=" + jobType +"&where=" + location + "&content-type=application/json";
 
-
-
-
 // // fetch request to view array of jobs
 //  fetch(adzunaURL)
 // .then(function (res) {
@@ -41,66 +77,20 @@ console.log("hello");
 // console.log(jobs);
 // });
 
-
 // Collapses Nav Bar on a smaller screen
 function toggleNavbar(collapseID) {
   document.getElementById(collapseID).classList.toggle("hidden");
   document.getElementById(collapseID).classList.toggle("block");
 }
 
-
 //Sidebar - Side navigation menu on mobile/responsive mode
 function toggleNavbar(collapseID) {
-document.getElementById(collapseID).classList.toggle("hidden");
-document.getElementById(collapseID).classList.toggle("bg-white");
-document.getElementById(collapseID).classList.toggle("m-2");
-document.getElementById(collapseID).classList.toggle("py-3");
-document.getElementById(collapseID).classList.toggle("px-6");
+  document.getElementById(collapseID).classList.toggle("hidden");
+  document.getElementById(collapseID).classList.toggle("bg-white");
+  document.getElementById(collapseID).classList.toggle("m-2");
+  document.getElementById(collapseID).classList.toggle("py-3");
+  document.getElementById(collapseID).classList.toggle("px-6");
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //Adzuna URL (with example search) and info for requests
 // var applicationID = "2967701c";
