@@ -58,7 +58,6 @@ function initMap() {
   });
 }
 
-// Console Test
 console.log("hello");
 
 // Get Jobs
