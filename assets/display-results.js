@@ -19,24 +19,24 @@
 
 //var location = document.location.search.split("=").pop();
 
-                                                     //  HTML Script
+//  HTML Script
 
 // Collapses Nav Bar on a smaller screen
 function toggleNavbar(collapseID) {
-    document.getElementById(collapseID).classList.toggle("hidden");
-    document.getElementById(collapseID).classList.toggle("block");
-  }
-  
-  //Sidebar - Side navigation menu on mobile/responsive mode
-  function toggleNavbar(collapseID) {
-    document.getElementById(collapseID).classList.toggle("hidden");
-    document.getElementById(collapseID).classList.toggle("bg-white");
-    document.getElementById(collapseID).classList.toggle("m-2");
-    document.getElementById(collapseID).classList.toggle("py-3");
-    document.getElementById(collapseID).classList.toggle("px-6");
-  }
-  
-                                        //   Get Search from Previous Page
+  document.getElementById(collapseID).classList.toggle("hidden");
+  document.getElementById(collapseID).classList.toggle("block");
+}
+
+//Sidebar - Side navigation menu on mobile/responsive mode
+function toggleNavbar(collapseID) {
+  document.getElementById(collapseID).classList.toggle("hidden");
+  document.getElementById(collapseID).classList.toggle("bg-white");
+  document.getElementById(collapseID).classList.toggle("m-2");
+  document.getElementById(collapseID).classList.toggle("py-3");
+  document.getElementById(collapseID).classList.toggle("px-6");
+}
+
+//   Get Search from Previous Page
 function getJobs() {
   var apiKey = "c8be0d68-4d2d-4751-943b-da6b6d189413";
   var encodedKey = btoa(`${apiKey}:`);
@@ -109,39 +109,42 @@ function getJobs() {
 
 getJobs();
 
+// Make Search with Filters
 
-                                                 // Make Search with Filters
+var locationInput = document.getElementById("location-input");
+var searchButton = document.getElementById("search-button");
+var results = document.getElementById("results");
 
-var locationInput = document.getElementById ("location-input")
-var searchButton = document.getElementById ("search-button")
-var results = document.getElementById("results")
-
-// Search Again 
+// Search Again
 var makeSearch = function (event) {
-  event.preventDefault()
-    // This will take the user input from the search field
-    var userLocationInput = locationInput.value.trim();
-    console.log(userLocationInput);
-  
-    if (!userLocationInput) {
-      console.error("You need a search input value!");
-      return;
-    }
-  
-     // Will refresh the page and display new results
-    var queryString = "./search-results.html?q=" + userLocationInput;
-    location.assign(queryString);
+  event.preventDefault();
+  // This will take the user input from the search field
+  var userLocationInput = locationInput.value.trim();
+  console.log(userLocationInput);
 
- // REED Variables
- var apiKey = "c8be0d68-4d2d-4751-943b-da6b6d189413";
- var encodedKey = btoa(`${apiKey}:`);
- var authHeader = `Basic ${encodedKey}`;
- var keywords = ["junior%20developer"];
- var corsAnywhereLink = "https://radiant-stream-08604.herokuapp.com/";
- var queryURL =
- corsAnywhereLink +
- "https://www.reed.co.uk/api/1.0/search?keywords=" +
- keywords + "&locationName=" + userLocationInput + "&distanceFromLocation=" + 10;
+  if (!userLocationInput) {
+    console.error("You need a search input value!");
+    return;
+  }
+
+  // Will refresh the page and display new results
+  var queryString = "./search-results.html?q=" + userLocationInput;
+  location.assign(queryString);
+
+  // REED Variables
+  var apiKey = "c8be0d68-4d2d-4751-943b-da6b6d189413";
+  var encodedKey = btoa(`${apiKey}:`);
+  var authHeader = `Basic ${encodedKey}`;
+  var keywords = ["junior%20developer"];
+  var corsAnywhereLink = "https://radiant-stream-08604.herokuapp.com/";
+  var queryURL =
+    corsAnywhereLink +
+    "https://www.reed.co.uk/api/1.0/search?keywords=" +
+    keywords +
+    "&locationName=" +
+    userLocationInput +
+    "&distanceFromLocation=" +
+    10;
 
   // Fetch Request
   fetch(queryURL, {
@@ -165,9 +168,9 @@ var makeSearch = function (event) {
         var jobTypeEl = document.createElement("h4");
         jobTypeEl.textContent = jobs.results[i].jobTitle;
         //link here for next page if click on job title
-        // var jobLinkEl = document.createElement("a");
-        // jobLinkEl.setAttribute("src", "result page");
-        // jobTypeEl.append(jobLinkEl);
+        var jobLinkEl = document.createElement("a");
+        jobLinkEl.setAttribute("src", "./description-page");
+        jobTypeEl.append(jobLinkEl);
         resultCard.append(jobTypeEl);
 
         var locationEl = document.createElement("div");
@@ -180,7 +183,7 @@ var makeSearch = function (event) {
 
         var salaryEl = document.createElement("div");
         salaryEl.textContent =
-          "Salary: " +
+          "Salary: £" +
           jobs.results[i].minimumSalary +
           "-" +
           jobs.results[i].maximumSalary;
@@ -195,8 +198,8 @@ var makeSearch = function (event) {
         resultCard.append(cardBreak);
 
         if (makeSearch) {
-            var previousResults2 = document.getElementById("results2");
-             previousResults2.parentNode.removeChild(previousResults2);
+          var previousResults2 = document.getElementById("results2");
+          previousResults2.parentNode.removeChild(previousResults2);
         }
       }
     });
