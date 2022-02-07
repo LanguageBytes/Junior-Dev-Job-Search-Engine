@@ -19,24 +19,24 @@
 
 //var location = document.location.search.split("=").pop();
 
-                                                     //  HTML Script
+//  HTML Script
 
 // Collapses Nav Bar on a smaller screen
 function toggleNavbar(collapseID) {
-    document.getElementById(collapseID).classList.toggle("hidden");
-    document.getElementById(collapseID).classList.toggle("block");
-  }
-  
-  //Sidebar - Side navigation menu on mobile/responsive mode
-  function toggleNavbar(collapseID) {
-    document.getElementById(collapseID).classList.toggle("hidden");
-    document.getElementById(collapseID).classList.toggle("bg-white");
-    document.getElementById(collapseID).classList.toggle("m-2");
-    document.getElementById(collapseID).classList.toggle("py-3");
-    document.getElementById(collapseID).classList.toggle("px-6");
-  }
-  
-                                        //   Get Search from Previous Page
+  document.getElementById(collapseID).classList.toggle("hidden");
+  document.getElementById(collapseID).classList.toggle("block");
+}
+
+//Sidebar - Side navigation menu on mobile/responsive mode
+function toggleNavbar(collapseID) {
+  document.getElementById(collapseID).classList.toggle("hidden");
+  document.getElementById(collapseID).classList.toggle("bg-white");
+  document.getElementById(collapseID).classList.toggle("m-2");
+  document.getElementById(collapseID).classList.toggle("py-3");
+  document.getElementById(collapseID).classList.toggle("px-6");
+}
+
+//   Get Search from Previous Page
 function getJobs() {
   var apiKey = "c8be0d68-4d2d-4751-943b-da6b6d189413";
   var encodedKey = btoa(`${apiKey}:`);
@@ -77,9 +77,9 @@ function getJobs() {
         var jobTypeEl = document.createElement("h4");
         jobTypeEl.textContent = jobs.results[i].jobTitle;
         //link here for next page if click on job title
-        // var jobLinkEl = document.createElement("a");
-        // jobLinkEl.setAttribute("src", "result page");
-        // jobTypeEl.append(jobLinkEl);
+        var jobLinkEl = document.createElement("a");
+        jobLinkEl.setAttribute("src", "./description-page.html");
+        jobTypeEl.append(jobLinkEl);
         resultCard.append(jobTypeEl);
 
         var locationEl = document.createElement("div");
@@ -92,7 +92,7 @@ function getJobs() {
 
         var salaryEl = document.createElement("div");
         salaryEl.textContent =
-          "Salary: " +
+          "Salary: £" +
           jobs.results[i].minimumSalary +
           "-" +
           jobs.results[i].maximumSalary;
@@ -124,36 +124,51 @@ function getJobs() {
     });
 }
 
-window.onload = getJobs();
+getJobs();
 
-                                                 // Make Search with Filters
+// Make Search with Filters
 
-var searchButton = document.getElementById ("search-button")
-var results = document.getElementById("results")
+var locationInput = document.getElementById("location-input");
+var searchButton = document.getElementById("search-button");
+var results = document.getElementById("results");
 
-// Search Again 
+// Search Again
 var makeSearch = function (event) {
-  event.preventDefault()
-    // This will take the user input from the search field
-    var locationInput = document.getElementById ("location-input")
-    var userLocationInput = locationInput.value.trim();
-    var languages = document.getElementById("language-input").value;
-    var minimumSalary = document.getElementById("minimum-salary-input").value;
-  
-    if (!userLocationInput) {
-      console.error("You need a search input value!");
-      return;
-    }
+  event.preventDefault();
+  // This will take the user input from the search field
+  var userLocationInput = locationInput.value.trim();
+  console.log(userLocationInput);
+
+  if (!userLocationInput) {
+    console.error("You need a search input value!");
+    return;
+  }
+
+  // Will refresh the page and display new results
+  var queryString = "./search-results.html?q=" + userLocationInput;
+  location.assign(queryString);
 
     // Will refresh the page and display new results
     var queryString = ["./search-results.html?q=" + userLocationInput + "&" + languages + minimumSalary];
     location.assign(queryString);
+      
   }
-  ;
-
+  
+  
 var addBookmark = function (event){
  event.preventDefault()
 }
+
+
+// var salaryEl = document.createElement("div");
+// salaryEl.textContent =
+//   "Salary: £" +
+//   jobs.results[i].minimumSalary +
+//   "-" +
+//   jobs.results[i].maximumSalary;
+// resultCard.append(salaryEl);
+
+
 
 //Event listener for search button
 searchButton.addEventListener("click", makeSearch);
