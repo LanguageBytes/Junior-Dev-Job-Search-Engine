@@ -60,3 +60,9 @@ fetch(queryURL, {
       }
     }
   });
+
+//event listener for clicking onto apply button/job title on prev page
+//get job id
+//put in query string all parameters searched for previously, plus jobID
+//send to next page
+//render info to page same as this one but with description and link to apply
