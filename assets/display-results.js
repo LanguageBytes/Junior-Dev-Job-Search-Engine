@@ -120,6 +120,8 @@ function getJobs() {
 
         var cardBreak = document.createElement("br");
         resultCard.append(cardBreak);
+
+
       }
     });
 }
@@ -146,12 +148,7 @@ var makeSearch = function (event) {
 
   // Will refresh the page and display new results
   var queryString = "./search-results.html?q=" + userLocationInput;
-  location.assign(queryString);
-
-    // Will refresh the page and display new results
-    var queryString = ["./search-results.html?q=" + userLocationInput + "&" + languages + minimumSalary];
-    location.assign(queryString);
-      
+  location.assign(queryString); 
   }
   
   
@@ -160,20 +157,9 @@ var addBookmark = function (event){
 }
 
 
-// var salaryEl = document.createElement("div");
-// salaryEl.textContent =
-//   "Salary: £" +
-//   jobs.results[i].minimumSalary +
-//   "-" +
-//   jobs.results[i].maximumSalary;
-// resultCard.append(salaryEl);
-
-
-
 //Event listener for search button
 searchButton.addEventListener("click", makeSearch);
-
-// Event listener for save button 
+// Event listener for bookmark button 
 bookmarkEl.addEventListener("click", addBookmark)
 
 
