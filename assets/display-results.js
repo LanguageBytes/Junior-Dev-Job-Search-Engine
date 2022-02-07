@@ -116,13 +116,22 @@ var locationInput = document.getElementById ("location-input")
 var searchButton = document.getElementById ("search-button")
 var results = document.getElementById("results")
 
-// Search API
+// Search Again 
 var makeSearch = function (event) {
   event.preventDefault()
     // This will take the user input from the search field
-var userLocationInput = locationInput.value.trim();
-console.log(userLocationInput)
- 
+    var userLocationInput = locationInput.value.trim();
+    console.log(userLocationInput);
+  
+    if (!userLocationInput) {
+      console.error("You need a search input value!");
+      return;
+    }
+  
+     // Will refresh the page and display new results
+    var queryString = "./search-results.html?q=" + userLocationInput;
+    location.assign(queryString);
+
  // REED Variables
  var apiKey = "c8be0d68-4d2d-4751-943b-da6b6d189413";
  var encodedKey = btoa(`${apiKey}:`);
@@ -133,8 +142,6 @@ console.log(userLocationInput)
  corsAnywhereLink +
  "https://www.reed.co.uk/api/1.0/search?keywords=" +
  keywords + "&locationName=" + userLocationInput + "&distanceFromLocation=" + 10;
-
-// REMOVE PREVIOUSLY SEARCHED RESULTS
 
   // Fetch Request
   fetch(queryURL, {
@@ -186,10 +193,14 @@ console.log(userLocationInput)
 
         var cardBreak = document.createElement("br");
         resultCard.append(cardBreak);
+
+        if (makeSearch) {
+            var previousResults2 = document.getElementById("results2");
+             previousResults2.parentNode.removeChild(previousResults2);
+        }
       }
     });
 };
-
 
 //Event listener for search button
 searchButton.addEventListener("click", makeSearch);
