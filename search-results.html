@@ -97,16 +97,26 @@
 
   <!-- Page Split into 3 Columns (Some CSS styling had to also be declared on here as on deployed github page was not being displayed) -->
 <div class="row">
+
   <!-- Column 1 = Side Bar -->
   <div class="column left" style="background-color:rgb(169, 231, 236);  float: left;
   padding: 10px; width:25%">
-    <h2>Search Again/SideBar</h2>
+    <h2>Search</h2>
     <br>
-    <p>Search again with filters</p>
+    <!-- Search Input -->
+    <form target="search-results.html" method="POST">
+    <div class="mb-3 pt-0">
+      <input type="text" id="location-input" class="px-2 py-1 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full" placeholder="Enter a location">
+    </div>
+    <!-- Search Button -->
+    <div class="flex justify-end mt-6">
+      <button id ="search-button" class="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600"> Search  </button>
+     </div>
 
     <br>
     <p> Filters Here </p>
   </div>
+</form>
 
    <!-- Column 2 = Search Results -->
   <div class="column middle" style="background-color:rgb(253, 253, 253);  float: left;
