@@ -27,16 +27,11 @@ Document
 ========
 */
 
-/**
-Use a better box model (opinionated).
-*/
-
-
 * {
   box-sizing: border-box;
 }
 
-/* Create three unequal columns that float next to each other */
+/* Three unequal columns that float next to each other */
 .column {
   float: left;
   padding: 10px;
