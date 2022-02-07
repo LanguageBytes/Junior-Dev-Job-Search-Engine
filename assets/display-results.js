@@ -119,7 +119,7 @@ var results = document.getElementById("results")
 // Search API
 var makeSearch = function (event) {
   event.preventDefault()
-    // This will take the user input from the query string for us to use
+    // This will take the user input from the search field
 var userLocationInput = locationInput.value.trim();
 console.log(userLocationInput)
  
