@@ -41,14 +41,14 @@ function getJobs() {
   var apiKey = "c8be0d68-4d2d-4751-943b-da6b6d189413";
   var encodedKey = btoa(`${apiKey}:`);
   var authHeader = `Basic ${encodedKey}`;
-  var keywords = "junior%20developer";
+  var keywords = "junior%20developer%20"; 
   //var location = "york";
   var location = document.location.search.split("=").pop();
   var corsAnywhereLink = "https://radiant-stream-08604.herokuapp.com/";
   var queryURL =
     corsAnywhereLink +
     "https://www.reed.co.uk/api/1.0/search?keywords=" +
-    keywords +
+    keywords + 
     "&locationName=" +
     location +
     "&distanceFromLocation=" +
@@ -61,7 +61,9 @@ function getJobs() {
     },
   })
     .then(function (res) {
+      console.log (res);
       return res.json();
+      
     })
     .then(function (jobs) {
       console.log(jobs);
@@ -98,8 +100,25 @@ function getJobs() {
           "Closing date: " + jobs.results[i].expirationDate;
         resultCard.append(closingEl);
 
+        var bookmarkEl = document.createElement("button");
+        bookmarkEl.textContent =
+          "Save";
+        bookmarkEl.classList.add('bookmark')
+        resultCard.append(bookmarkEl);
+      
+        var readMoreEl = document.createElement("button");
+        readMoreEl.textContent =
+          "Read Description";
+        readMoreEl.classList.add('readMore')
+        resultCard.append(readMoreEl);
+
         var cardBreak = document.createElement("br");
         resultCard.append(cardBreak);
+
+        var cardBreak = document.createElement("br");
+        resultCard.append(cardBreak);
+
+
       }
     });
 }
@@ -126,86 +145,20 @@ var makeSearch = function (event) {
 
   // Will refresh the page and display new results
   var queryString = "./search-results.html?q=" + userLocationInput;
-  location.assign(queryString);
+  location.assign(queryString); 
+  }
+  
+  
+var addBookmark = function (event){
+ event.preventDefault()
+}
 
-  // REED Variables
-  var apiKey = "c8be0d68-4d2d-4751-943b-da6b6d189413";
-  var encodedKey = btoa(`${apiKey}:`);
-  var authHeader = `Basic ${encodedKey}`;
-  var keywords = ["junior%20developer"];
-  var corsAnywhereLink = "https://radiant-stream-08604.herokuapp.com/";
-  var queryURL =
-    corsAnywhereLink +
-    "https://www.reed.co.uk/api/1.0/search?keywords=" +
-    keywords +
-    "&locationName=" +
-    userLocationInput +
-    "&distanceFromLocation=" +
-    10;
-
-  // Fetch Request
-  fetch(queryURL, {
-    headers: {
-      Authorization: authHeader,
-    },
-  })
-    .then(function (res) {
-      return res.json();
-    })
-    .then(function (jobs) {
-      console.log(jobs);
-      console.log(jobs.results[0].employerName);
-
-      for (var i = 0; i < jobs.results.length; i++) {
-        var resultArea = document.getElementById("results");
-        var resultCard = document.createElement("div");
-        resultCard.classList.add("card-body");
-        resultArea.append(resultCard);
-
-        var jobTypeEl = document.createElement("a");
-        jobTypeEl.textContent = jobs.results[i].jobTitle;
-        //link here for next page if click on job title
-        jobTypeEl.setAttribute("href", "./description-page.html");
-        resultCard.append(jobTypeEl);
-
-        var locationEl = document.createElement("div");
-        locationEl.textContent = "Location: " + jobs.results[i].locationName;
-        resultCard.append(locationEl);
-
-        var employerEl = document.createElement("div");
-        employerEl.textContent = "Employer: " + jobs.results[i].employerName;
-        resultCard.append(employerEl);
-
-        var salaryEl = document.createElement("div");
-        salaryEl.textContent =
-          "Salary: £" +
-          jobs.results[i].minimumSalary +
-          "-" +
-          jobs.results[i].maximumSalary;
-        resultCard.append(salaryEl);
-
-        var closingEl = document.createElement("div");
-        closingEl.textContent =
-          "Closing date: " + jobs.results[i].expirationDate;
-        resultCard.append(closingEl);
-
-        var cardBreak = document.createElement("br");
-        resultCard.append(cardBreak);
-
-        if (makeSearch) {
-          var previousResults2 = document.getElementById("results2");
-          previousResults2.parentNode.removeChild(previousResults2);
-        }
-      }
-    });
-};
 
 //Event listener for search button
 searchButton.addEventListener("click", makeSearch);
 
-//event listener for clicking onto apply button
-//get job id
-//put in query string all parameters searched for previously, plus jobID
-//send to next page
-//render info to page same as this one but with description and link to apply
-//event listener on job title
+
+// Event listener for bookmark button 
+bookmarkEl.addEventListener("click", addBookmark)
+
+
