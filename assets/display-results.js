@@ -75,9 +75,9 @@ function getJobs() {
         var jobTypeEl = document.createElement("h4");
         jobTypeEl.textContent = jobs.results[i].jobTitle;
         //link here for next page if click on job title
-        // var jobLinkEl = document.createElement("a");
-        // jobLinkEl.setAttribute("src", "result page");
-        // jobTypeEl.append(jobLinkEl);
+        var jobLinkEl = document.createElement("a");
+        jobLinkEl.setAttribute("src", "./description-page.html");
+        jobTypeEl.append(jobLinkEl);
         resultCard.append(jobTypeEl);
 
         var locationEl = document.createElement("div");
@@ -90,7 +90,7 @@ function getJobs() {
 
         var salaryEl = document.createElement("div");
         salaryEl.textContent =
-          "Salary: " +
+          "Salary: £" +
           jobs.results[i].minimumSalary +
           "-" +
           jobs.results[i].maximumSalary;
@@ -169,7 +169,7 @@ var makeSearch = function (event) {
         jobTypeEl.textContent = jobs.results[i].jobTitle;
         //link here for next page if click on job title
         var jobLinkEl = document.createElement("a");
-        jobLinkEl.setAttribute("src", "./description-page");
+        jobLinkEl.setAttribute("src", "./description-page.html");
         jobTypeEl.append(jobLinkEl);
         resultCard.append(jobTypeEl);
 
