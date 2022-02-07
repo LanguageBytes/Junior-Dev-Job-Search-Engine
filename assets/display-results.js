@@ -19,6 +19,26 @@
 
 //var location = document.location.search.split("=").pop();
 
+
+
+//  HTML Script
+
+// Collapses Nav Bar on a smaller screen
+function toggleNavbar(collapseID) {
+    document.getElementById(collapseID).classList.toggle("hidden");
+    document.getElementById(collapseID).classList.toggle("block");
+  }
+  
+  //Sidebar - Side navigation menu on mobile/responsive mode
+  function toggleNavbar(collapseID) {
+    document.getElementById(collapseID).classList.toggle("hidden");
+    document.getElementById(collapseID).classList.toggle("bg-white");
+    document.getElementById(collapseID).classList.toggle("m-2");
+    document.getElementById(collapseID).classList.toggle("py-3");
+    document.getElementById(collapseID).classList.toggle("px-6");
+  }
+  
+
 function getJobs() {
   var apiKey = "c8be0d68-4d2d-4751-943b-da6b6d189413";
   var encodedKey = btoa(`${apiKey}:`);
@@ -132,22 +152,3 @@ console.log(userLocationInput)
      console.log(results);
    }
 };
-
-
-//  HTML Script
-
-// Collapses Nav Bar on a smaller screen
-function toggleNavbar(collapseID) {
-    document.getElementById(collapseID).classList.toggle("hidden");
-    document.getElementById(collapseID).classList.toggle("block");
-  }
-  
-  //Sidebar - Side navigation menu on mobile/responsive mode
-  function toggleNavbar(collapseID) {
-    document.getElementById(collapseID).classList.toggle("hidden");
-    document.getElementById(collapseID).classList.toggle("bg-white");
-    document.getElementById(collapseID).classList.toggle("m-2");
-    document.getElementById(collapseID).classList.toggle("py-3");
-    document.getElementById(collapseID).classList.toggle("px-6");
-  }
-  
