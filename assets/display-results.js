@@ -72,12 +72,9 @@ function getJobs() {
         resultCard.classList.add("card-body");
         resultArea.append(resultCard);
 
-        var jobTypeEl = document.createElement("h4");
+        var jobTypeEl = document.createElement("a");
         jobTypeEl.textContent = jobs.results[i].jobTitle;
-        //link here for next page if click on job title
-        var jobLinkEl = document.createElement("a");
-        jobLinkEl.setAttribute("src", "./description-page.html");
-        jobTypeEl.append(jobLinkEl);
+        jobTypeEl.setAttribute("href", "./description-page.html");
         resultCard.append(jobTypeEl);
 
         var locationEl = document.createElement("div");
@@ -165,12 +162,10 @@ var makeSearch = function (event) {
         resultCard.classList.add("card-body");
         resultArea.append(resultCard);
 
-        var jobTypeEl = document.createElement("h4");
+        var jobTypeEl = document.createElement("a");
         jobTypeEl.textContent = jobs.results[i].jobTitle;
         //link here for next page if click on job title
-        var jobLinkEl = document.createElement("a");
-        jobLinkEl.setAttribute("src", "./description-page.html");
-        jobTypeEl.append(jobLinkEl);
+        jobTypeEl.setAttribute("href", "./description-page.html");
         resultCard.append(jobTypeEl);
 
         var locationEl = document.createElement("div");
@@ -207,3 +202,10 @@ var makeSearch = function (event) {
 
 //Event listener for search button
 searchButton.addEventListener("click", makeSearch);
+
+//event listener for clicking onto apply button
+//get job id
+//put in query string all parameters searched for previously, plus jobID
+//send to next page
+//render info to page same as this one but with description and link to apply
+//event listener on job title
