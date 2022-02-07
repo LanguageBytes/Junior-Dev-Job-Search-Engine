@@ -90,3 +90,64 @@ function getJobs() {
 }
 
 getJobs();
+
+
+// Make Search SideBar and Filters
+
+var locationInput = document.getElementById ("location-input")
+var searchButton = document.getElementById ("search-button")
+var results = document.getElementById("results")
+
+// Search API
+var makeSearch = function (event) {
+  event.prevent.default()
+    // This will take the user input from the query string for us to use
+var userLocationInput = window.location.search.slice(3);
+console.log(userLocationInput)
+ 
+ // REED Variables
+ var apiKey = "c8be0d68-4d2d-4751-943b-da6b6d189413";
+ var encodedKey = btoa(`${apiKey}:`);
+ var authHeader = `Basic ${encodedKey}`;
+ var keywords = ["junior%20developer", ""];
+ var corsAnywhereLink = "https://radiant-stream-08604.herokuapp.com/";
+ var queryURL =
+ corsAnywhereLink +
+ "https://www.reed.co.uk/api/1.0/search?keywords=" +
+ keywords + "&locationName=" + userLocationInput + "&distanceFromLocation=" + 10;
+
+ fetch(queryURL, {
+   headers: {
+     Authorization: authHeader,
+   },
+ })
+   .then(jsonResponse)
+   .then(returnJobs);
+
+   function jsonResponse(res) {
+     return res.json();
+   }
+   
+   function returnJobs(results) {
+     console.log(results);
+   }
+};
+
+
+//  HTML Script
+
+// Collapses Nav Bar on a smaller screen
+function toggleNavbar(collapseID) {
+    document.getElementById(collapseID).classList.toggle("hidden");
+    document.getElementById(collapseID).classList.toggle("block");
+  }
+  
+  //Sidebar - Side navigation menu on mobile/responsive mode
+  function toggleNavbar(collapseID) {
+    document.getElementById(collapseID).classList.toggle("hidden");
+    document.getElementById(collapseID).classList.toggle("bg-white");
+    document.getElementById(collapseID).classList.toggle("m-2");
+    document.getElementById(collapseID).classList.toggle("py-3");
+    document.getElementById(collapseID).classList.toggle("px-6");
+  }
+  
