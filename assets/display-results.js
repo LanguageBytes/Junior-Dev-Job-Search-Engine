@@ -90,6 +90,7 @@ function getJobs() {
 
         var jobTypeEl = document.createElement("a");
         jobTypeEl.textContent = jobs.results[i].jobTitle;
+        jobTypeEl.setAttribute("style", "color: purple");
         var jobId = jobs.results[i].jobId;
         var descriptionLink = "./description-page.html?q=" + jobId;
         jobTypeEl.setAttribute("href", descriptionLink);
@@ -97,6 +98,13 @@ function getJobs() {
         jobTypeEl.addEventListener("click", function () {
           document.location.assign(descriptionLink);
         });
+
+        // var jobTypeEl = document.createElement("h2");
+        // jobTypeEl.textContent = jobs.results[i].jobTitle;
+        // // var jobId = jobs.results[i].jobId;
+        // // var descriptionLink = "./description-page.html?q=" + jobId;
+        // // jobTypeEl.setAttribute("href", descriptionLink);
+        // resultCard.append(jobTypeEl);
 
         var locationEl = document.createElement("div");
         locationEl.textContent = "Location: " + jobs.results[i].locationName;
@@ -119,10 +127,11 @@ function getJobs() {
           "Closing date: " + jobs.results[i].expirationDate;
         resultCard.append(closingEl);
 
-        var readMoreEl = document.createElement("button");
-        readMoreEl.textContent = "Read Description";
-        readMoreEl.classList.add("readMore");
-        resultCard.append(readMoreEl);
+        // var readMoreEl = document.createElement("button");
+        // readMoreEl.textContent = "Read Description";
+        // readMoreEl.classList.add("readMore");
+
+        //resultCard.append(readMoreEl);
 
         var cardBreak = document.createElement("br");
         resultCard.append(cardBreak);
@@ -207,13 +216,15 @@ newSearch = function (event) {
         resultCard.classList.add("card-body");
         resultArea.append(resultCard);
 
-        var jobTypeEl = document.createElement("a");
+        //link created to take to next page for job description
+        var jobTypeEl = document.createElement("h2");
         jobTypeEl.textContent = jobs.results[i].jobTitle;
+        jobTypeEl.setAttribute("style", "color: purple");
         var jobId = jobs.results[i].jobId;
         var descriptionLink = "./description-page.html?q=" + jobId;
-        //document.location.assign(descriptionLink);
         jobTypeEl.setAttribute("href", descriptionLink);
         resultCard.append(jobTypeEl);
+        //link assigned only if clicked
         jobTypeEl.addEventListener("click", function () {
           document.location.assign(descriptionLink);
         });
@@ -239,10 +250,17 @@ newSearch = function (event) {
           "Closing date: " + jobs.results[i].expirationDate;
         resultCard.append(closingEl);
 
-        var readMoreEl = document.createElement("button");
-        readMoreEl.textContent = "Read Description";
-        readMoreEl.classList.add("readMore");
-        resultCard.append(readMoreEl);
+        // var readMoreEl = document.createElement("button");
+        // readMoreEl.textContent = "Read Description";
+        // readMoreEl.classList.add("readMore");
+        // var jobId = jobs.results[i].jobId;
+        // var descriptionLink = "./description-page.html?q=" + jobId;
+        // readMoreEl.setAttribute("href", descriptionLink);
+        // readMoreEl.addEventListener("click", function () {
+        //   document.location.assign(descriptionLink);
+        // });
+
+        //resultCard.append(readMoreEl);
 
         var cardBreak = document.createElement("br");
         resultCard.append(cardBreak);
@@ -255,9 +273,8 @@ newSearch = function (event) {
 
 //Event listener for search button
 searchButton.addEventListener("click", doSearch);
-// Event listener for bookmark button 
-bookmarkEl.addEventListener("click", addBookmark)
-
+// Event listener for bookmark button
+bookmarkEl.addEventListener("click", addBookmark);
 
 //Add event listener to save button
 //Set item to local storage when save clicked

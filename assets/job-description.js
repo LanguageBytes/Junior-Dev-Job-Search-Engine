@@ -1,12 +1,12 @@
 var apiKey = "c8be0d68-4d2d-4751-943b-da6b6d189413";
 var encodedKey = btoa(`${apiKey}:`);
 var authHeader = `Basic ${encodedKey}`;
+//takes jobID from query string for use in new API call
 var jobID = document.location.search.split("=").pop();
 var corsAnywhereLink = "https://radiant-stream-08604.herokuapp.com/";
+//queryURL for new API to search details of specific job, plus corsAnywhere as previous
 var queryURL =
   corsAnywhereLink + "https://www.reed.co.uk/api/1.0/jobs/" + jobID;
-
-//languagebytes.github.io/Junior-Dev-Job-Search-Engine/description-page.html?q=45542861
 
 // Fetch Request
 https: fetch(queryURL, {
@@ -18,8 +18,7 @@ https: fetch(queryURL, {
     return res.json();
   })
   .then(function (job) {
-    console.log(job);
-    //       console.log(jobs.results[0].employerName);
+    //elements creates and info rendered to page
     var resultArea = document.getElementById("description");
     resultArea.textContent = job.jobTitle;
 
@@ -39,7 +38,6 @@ https: fetch(queryURL, {
     var jobDescription = document.createElement("div");
     jobDescription.textContent = job.jobDescription;
     resultArea.append(jobDescription);
-    // Apply here/job link: jobs.results[i].jobUrl
 
     var closingEl = document.createElement("div");
     closingEl.textContent = "Closing date: " + job.expirationDate;
@@ -51,9 +49,3 @@ https: fetch(queryURL, {
 
     resultArea.append(applyLink);
   });
-
-//event listener for clicking onto apply button/job title on prev page
-//get job id
-//put in query string all parameters searched for previously, plus jobID
-//send to next page
-//render info to page same as this one but with description and link to apply
