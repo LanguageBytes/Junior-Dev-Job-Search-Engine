@@ -19,42 +19,42 @@ function initMap() {
   //Markers
   const marker = new google.maps.Marker({
     position: softcat,
-    // label: "softcat",
+    label: "1",
     map: map,
   });
   const marker1 = new google.maps.Marker({
     position: cisco,
-    // label: "cisco",
+    label: "2",
     map: map,
   });
 
   const marker2 = new google.maps.Marker({
     position: salesForce,
-    // label: "Salesforce",
+    label: "3",
     map: map,
   });
 
   const marker3 = new google.maps.Marker({
     position: sap,
-    // label: "sap",
+    label: "4",
     map: map,
   });
 
   const marker4 = new google.maps.Marker({
     position: fti,
-    // label: "fti",
+    label: "5",
     map: map,
   });
 
   const marker5 = new google.maps.Marker({
     position: sapKnutsford,
-    // label: "Sap",
+    label: "5",
     map: map,
   });
 
   const marker6 = new google.maps.Marker({
     position: sapBerkshire,
-    // label: "Sap",
+    label: "5",
     map: map,
   });
 }
