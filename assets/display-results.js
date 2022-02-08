@@ -58,7 +58,7 @@ if (localStorage.getItem("previousSearchData")) {
   // For each city searched, will create a button and keep it stored on the right of the page
   for (var i = 0; i < userHistory.length; i++) {
     var keepCity = document.createElement("button");
-    keepCity.classList.add("save")
+    keepCity.classList.add("save");
     keepCity.innerHTML = userHistory[i];
     stored.append(keepCity);
   }
@@ -236,6 +236,9 @@ newSearch = function (event) {
   fetch(queryURL, {
     headers: {
       Authorization: authHeader,
+      Allow: GET,
+      POST,
+      HEAD,
     },
   })
     .then(function (res) {
