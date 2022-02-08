@@ -19,7 +19,7 @@
 
 //var location = document.location.search.split("=").pop();
 
-//  HTML Script
+                                                          //  HTML Script
 
 // Collapses Nav Bar on a smaller screen
 function toggleNavbar(collapseID) {
@@ -36,32 +36,55 @@ function toggleNavbar(collapseID) {
   document.getElementById(collapseID).classList.toggle("px-6");
 }
 
-//HTML Variables
+                                                            //HTML Variables
 
 var searchButton = document.getElementById("search-button");
 var results = document.getElementById("results");
 var stored = document.getElementById("history");
+// Empty array for the localStorage
+var cities = []
 
-// Redirected from Homepage Search
 
-// Get Search Input from the Previous Page
+                                               // Get Local Storage from Previous Searches
+
+
+//Get any local Storage first before making new searches
+if (localStorage.getItem("previousSearchData")) {
+  cities = localStorage.getItem("previousSearchData");
+
+//Will add the user's history to the empty cities array above 
+var userHistory = [];
+userHistory = cities.split(",");  
+cities = userHistory
+
+// For each city searched, will create a button and keep it stored on the right of the page
+for (var i = 0; i < userHistory.length; i++) {
+  var keepCity = document.createElement("button");
+  keepCity.innerHTML = userHistory[i];
+  stored.append(keepCity); 
+}
+}
+
+                                              // Redirected from Homepage Search
+
+// Get Search from Previous Page
 function getJobs() {
-  //Takes the homepage search results from the querystring
+
+  // Takes the homepage search results from the querystring 
   var location = document.location.search.split("=").pop();
 
   // Reed Variables
   var apiKey = "c8be0d68-4d2d-4751-943b-da6b6d189413";
   var encodedKey = btoa(`${apiKey}:`);
   var authHeader = `Basic ${encodedKey}`;
-  var keywords = "junior%20developer";
+  var keywords = "junior%20developer"; 
   var corsAnywhereLink = "https://radiant-stream-08604.herokuapp.com/";
-
   var queryURL =
     corsAnywhereLink +
     "https://www.reed.co.uk/api/1.0/search?keywords=" +
-    keywords +
+    keywords + 
     "&locationName=" +
-    location +
+    location + 
     "&distanceFromLocation=" +
     10;
 
@@ -72,31 +95,27 @@ function getJobs() {
     },
   })
     .then(function (res) {
-      console.log(res);
+      console.log (res);
       return res.json();
+      
     })
     .then(function (jobs) {
       console.log(jobs);
       console.log(jobs.results[0].employerName);
 
+
       // Creates cards in the HTML for each job
       for (var i = 0; i < jobs.results.length; i++) {
         var resultArea = document.getElementById("results");
-
         var resultCard = document.createElement("div");
-        resultCard.setAttribute("id", "discardLater");
+        resultCard.setAttribute("id", "discardLater")
         resultCard.classList.add("card-body");
         resultArea.append(resultCard);
 
         var jobTypeEl = document.createElement("a");
         jobTypeEl.textContent = jobs.results[i].jobTitle;
-        var jobId = jobs.results[i].jobId;
-        var descriptionLink = "./description-page.html?q=" + jobId;
-        jobTypeEl.setAttribute("href", descriptionLink);
+        jobTypeEl.setAttribute("href", "./description-page.html");
         resultCard.append(jobTypeEl);
-        jobTypeEl.addEventListener("click", function () {
-          document.location.assign(descriptionLink);
-        });
 
         var locationEl = document.createElement("div");
         locationEl.textContent = "Location: " + jobs.results[i].locationName;
@@ -120,8 +139,9 @@ function getJobs() {
         resultCard.append(closingEl);
 
         var readMoreEl = document.createElement("button");
-        readMoreEl.textContent = "Read Description";
-        readMoreEl.classList.add("readMore");
+        readMoreEl.textContent =
+          "Read Description";
+        readMoreEl.classList.add('readMore')
         resultCard.append(readMoreEl);
 
         var cardBreak = document.createElement("br");
@@ -133,57 +153,93 @@ function getJobs() {
     });
 }
 
-getJobs();
+getJobs()
 
-// Search on Page with Filters
-newSearch = function (event) {
-  event.preventDefault();
 
-  //This will get rid of the previous searches by removing the 'discardLater' id added to resultCard (child of #results)
+
+                                    // Search on Page with Filters                                      
+newSearch = function(event) {
+  event.preventDefault()
+  
+
+//This will get rid of the previous searches by removing the 'discardLater' id added to resultCard (child of #results)
   function removeAllChildNodes(parent) {
     while (parent.firstChild) {
-      parent.removeChild(parent.firstChild);
+        parent.removeChild(parent.firstChild);
     }
   }
-  var previous = document.querySelector("#results");
+  var previous = document.querySelector('#results');
   removeAllChildNodes(previous);
+  
 
-  //This process is the same as getJobs but with filters added to it and local storage added
+//This process is the same as getJobs but with filters added to it and local storage added
 
   // Reed Variables
   var apiKey = "c8be0d68-4d2d-4751-943b-da6b6d189413";
   var encodedKey = btoa(`${apiKey}:`);
   var authHeader = `Basic ${encodedKey}`;
-  var keywords = ["junior%20developer%20", language];
+  var keywords = ["junior%20developer%20", language]; 
   var corsAnywhereLink = "https://radiant-stream-08604.herokuapp.com/";
 
   //FILTERS
-  var language = document.getElementById("language-input").value;
-  var locationInput = document.getElementById("location-input");
-  var minimumSalary = document.getElementById("minimum-salary-input").value;
-  var maximumSalary = document.getElementById("maximum-salary-input").value;
-  var userLocationInput = locationInput.value.trim();
-  console.log(userLocationInput);
+    var language = document.getElementById("language-input").value;
+    var locationInput = document.getElementById("location-input");
+    var minimumSalary = document.getElementById("minimum-salary-input").value;
+    var maximumSalary = document.getElementById("maximum-salary-input").value;
+    var userLocationInput = locationInput.value.trim();
+    console.log(userLocationInput);
 
-  // URL
+ // URL
   var queryURL =
-    corsAnywhereLink +
-    "https://www.reed.co.uk/api/1.0/search?keywords=" +
-    keywords +
-    "&locationName=" +
-    userLocationInput +
-    "&distanceFromLocation=" +
-    20 +
-    "&minimumSalary=" +
-    minimumSalary +
-    "&maximumSalary=" +
-    maximumSalary;
+  corsAnywhereLink +
+  "https://www.reed.co.uk/api/1.0/search?keywords=" +
+  keywords +
+  "&locationName=" +
+  userLocationInput + 
+  "&distanceFromLocation=" +
+  20 + "&minimumSalary=" + minimumSalary + "&maximumSalary=" + maximumSalary;
 
-  // if the user has not entered a search term
-  if (!userLocationInput) {
-    console.error("You need a search input value, you silly banana!");
-    return;
+
+// if the user has not entered a search term
+if (!userLocationInput) {
+  console.error("You need a search input value, you silly banana!");
+  return;
+}
+
+  // LOCAL STORAGE
+  var cities = []
+
+  // Will take the user location input and add it to local Storage and on the right hand side
+  pushCity()
+
+  //Get any local Storage from previous searches
+  if (localStorage.getItem("previousSearchData")) {
+  cities = localStorage.getItem("previousSearchData");
+
+  //Will add the user's history to the empty cities array above 
+  var userHistory = [];
+  userHistory = cities.split(",");
+  cities = userHistory
+
+//For each city searched, keep it stored on the page under the form column as a button
+for (var i = 0; i < userHistory.length; i++) {
+  var keepCity = document.createElement("button");
+  keepCity.classList.add("save")
+  keepCity.innerHTML = userHistory[i];
+  stored.append(keepCity); 
+}
+}
+
+  function pushCity () {
+    var searchedCity = document.getElementById("location-input").value.trim();
+    console.log("saved search"+ searchedCity)
+    var addCityArray = cities
+    addCityArray.push(searchedCity)
+  //Will save it in local storage
+    localStorage.setItem("previousSearchData", addCityArray);
   }
+// 
+
 
   // Fetch Request
   fetch(queryURL, {
@@ -192,31 +248,32 @@ newSearch = function (event) {
     },
   })
     .then(function (res) {
-      console.log(res);
+      console.log (res);
       return res.json();
+      
     })
     .then(function (jobs) {
       console.log(jobs);
       console.log(jobs.results[0].employerName);
 
-      //Creates cards in the HTML for each job
+  
+      //Creates the cards for each job
       for (var i = 0; i < jobs.results.length; i++) {
         var resultArea = document.getElementById("results");
         var resultCard = document.createElement("div");
-        resultCard.setAttribute("id", "discardLater");
+        resultCard.setAttribute("id", "discardLater")
         resultCard.classList.add("card-body");
         resultArea.append(resultCard);
+          
 
-        var jobTypeEl = document.createElement("a");
+        var jobTypeEl = document.createElement("h4");
         jobTypeEl.textContent = jobs.results[i].jobTitle;
-        var jobId = jobs.results[i].jobId;
-        var descriptionLink = "./description-page.html?q=" + jobId;
-        //document.location.assign(descriptionLink);
-        jobTypeEl.setAttribute("href", descriptionLink);
+
+        //link here for next page if click on job title
+        var jobLinkEl = document.createElement("a");
+        jobLinkEl.setAttribute("src", "./description-page.html");
+        jobTypeEl.append(jobLinkEl);
         resultCard.append(jobTypeEl);
-        jobTypeEl.addEventListener("click", function () {
-          document.location.assign(descriptionLink);
-        });
 
         var locationEl = document.createElement("div");
         locationEl.textContent = "Location: " + jobs.results[i].locationName;
@@ -240,8 +297,9 @@ newSearch = function (event) {
         resultCard.append(closingEl);
 
         var readMoreEl = document.createElement("button");
-        readMoreEl.textContent = "Read Description";
-        readMoreEl.classList.add("readMore");
+        readMoreEl.textContent =
+          "Read Description";
+        readMoreEl.classList.add('readMore')
         resultCard.append(readMoreEl);
 
         var cardBreak = document.createElement("br");
@@ -251,15 +309,15 @@ newSearch = function (event) {
         resultCard.append(cardBreak);
       }
     });
-};
+  
+
+   // UNFINISHED When the previous searched city is clicked, repeat the process displayed data
+     keepCity.addEventListener('click', function(event) {
+      event.preventDefault();
+     })
+    }
 
 //Event listener for search button
-searchButton.addEventListener("click", doSearch);
-// Event listener for bookmark button 
-bookmarkEl.addEventListener("click", addBookmark)
+searchButton.addEventListener("click", newSearch);
 
 
-//Add event listener to save button
-//Set item to local storage when save clicked
-//Get item from local storage
-//Display items from local storage
