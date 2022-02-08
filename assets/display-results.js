@@ -255,3 +255,7 @@ searchButton.addEventListener("click", doSearch);
 bookmarkEl.addEventListener("click", addBookmark)
 
 
+//Add event listener to save button
+//Set item to local storage on click
+//Get item from local storage
+//Display items from local storage
