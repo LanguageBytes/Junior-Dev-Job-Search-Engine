@@ -74,7 +74,6 @@ var cities = [];
   }
 
   pushCity()
-  
 // Redirected from Homepage Search
 
 // Get Search from Previous Page
