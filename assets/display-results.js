@@ -74,12 +74,9 @@ function getJobs() {
         resultCard.classList.add("card-body");
         resultArea.append(resultCard);
 
-        var jobTypeEl = document.createElement("h4");
+        var jobTypeEl = document.createElement("a");
         jobTypeEl.textContent = jobs.results[i].jobTitle;
-        //link here for next page if click on job title
-        var jobLinkEl = document.createElement("a");
-        jobLinkEl.setAttribute("src", "./description-page.html");
-        jobTypeEl.append(jobLinkEl);
+        jobTypeEl.setAttribute("href", "./description-page.html");
         resultCard.append(jobTypeEl);
 
         var locationEl = document.createElement("div");
