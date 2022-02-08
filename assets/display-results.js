@@ -212,6 +212,43 @@ newSearch = function (event) {
     return;
   }
 
+  // LOCAL STORAGE
+  var cities = [];
+
+  // Will take the user location input and add it to local Storage and on the right hand side
+  pushCity();
+
+  //Get any local Storage from previous searches
+  if (localStorage.getItem("previousSearchData")) {
+    cities = localStorage.getItem("previousSearchData");
+
+    //Will add the user's history to the empty cities array above
+    var userHistory = [];
+    userHistory = cities.split(",");
+    cities = userHistory;
+
+    //For each city searched, keep it stored on the page under the form column as a button
+    for (var i = 0; i < userHistory.length; i++) {
+      var keepCity = document.createElement("button");
+      keepCity.classList.add("save");
+      keepCity.innerHTML = userHistory[i];
+      stored.append(keepCity);
+    }
+  }
+
+  function pushCity() {
+    var searchedCity = document.getElementById("location-input").value.trim();
+    console.log("saved search" + searchedCity);
+    var addCityArray = cities;
+    if (!addCityArray.includes(searchedCity)) {
+      addCityArray.push(searchedCity);
+    }
+    //Will save it in local storage
+    localStorage.setItem("previousSearchData", addCityArray);
+  }
+  //
+
+
   // Fetch Request
   fetch(queryURL, {
     headers: {
