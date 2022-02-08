@@ -92,9 +92,11 @@ function getJobs() {
         jobTypeEl.textContent = jobs.results[i].jobTitle;
         var jobId = jobs.results[i].jobId;
         var descriptionLink = "./description-page.html?q=" + jobId;
-        document.location.assign(descriptionLink);
         jobTypeEl.setAttribute("href", descriptionLink);
         resultCard.append(jobTypeEl);
+        jobTypeEl.addEventListener("click", function () {
+          document.location.assign(descriptionLink);
+        });
 
         var locationEl = document.createElement("div");
         locationEl.textContent = "Location: " + jobs.results[i].locationName;
@@ -209,9 +211,12 @@ newSearch = function (event) {
         jobTypeEl.textContent = jobs.results[i].jobTitle;
         var jobId = jobs.results[i].jobId;
         var descriptionLink = "./description-page.html?q=" + jobId;
-        document.location.assign(descriptionLink);
+        //document.location.assign(descriptionLink);
         jobTypeEl.setAttribute("href", descriptionLink);
         resultCard.append(jobTypeEl);
+        jobTypeEl.addEventListener("click", function () {
+          document.location.assign(descriptionLink);
+        });
 
         var locationEl = document.createElement("div");
         locationEl.textContent = "Location: " + jobs.results[i].locationName;

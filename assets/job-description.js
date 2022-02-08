@@ -1,7 +1,8 @@
 var apiKey = "c8be0d68-4d2d-4751-943b-da6b6d189413";
 var encodedKey = btoa(`${apiKey}:`);
 var authHeader = `Basic ${encodedKey}`;
-var jobID = document.location.search.split("=").pop();
+//var jobID = document.location.search.split("=").pop();
+var jobID = 45640057;
 var corsAnywhereLink = "https://radiant-stream-08604.herokuapp.com/";
 var queryURL =
   corsAnywhereLink + "https://www.reed.co.uk/api/1.0/jobs/" + jobID;
@@ -21,41 +22,35 @@ https: fetch(queryURL, {
     console.log(job);
     //       console.log(jobs.results[0].employerName);
     var resultArea = document.getElementById("description");
-    resultArea.textContent = job.results[i].jobTitle;
+    resultArea.textContent = job.jobTitle;
 
     var locationEl = document.createElement("div");
-    locationEl.textContent = "Location: " + job.results[i].locationName;
+    locationEl.textContent = "Location: " + job.locationName;
     resultArea.append(locationEl);
 
     var employerEl = document.createElement("div");
-    employerEl.textContent = "Employer: " + job.results[i].employerName;
+    employerEl.textContent = "Employer: " + job.employerName;
     resultArea.append(employerEl);
 
     var salaryEl = document.createElement("div");
     salaryEl.textContent =
-      "Salary: £" +
-      job.results[i].minimumSalary +
-      "-" +
-      job.results[i].maximumSalary;
+      "Salary: £" + job.minimumSalary + "-" + job.maximumSalary;
     resultArea.append(salaryEl);
 
     var jobDescription = document.createElement("div");
-    jobDescription.textContent = job.results[i].jobDescription;
+    jobDescription.textContent = job.jobDescription;
     resultArea.append(jobDescription);
     // Apply here/job link: jobs.results[i].jobUrl
 
     var closingEl = document.createElement("div");
-    closingEl.textContent = "Closing date: " + job.results[i].expirationDate;
+    closingEl.textContent = "Closing date: " + job.expirationDate;
     resultArea.append(closingEl);
 
-    var applyHere = document.createElement("button");
-    applyHere.textContent = "Apply Here";
-
     var applyLink = document.createElement("a");
-    applyLink.setAttribute("href", job.results[i].jobUrl);
+    applyLink.setAttribute("href", job.jobUrl);
+    applyLink.textContent = "Apply Here";
 
-    applyHere.append(applyLink);
-    resultArea.append(applyHere);
+    resultArea.append(applyLink);
   });
 
 //event listener for clicking onto apply button/job title on prev page
