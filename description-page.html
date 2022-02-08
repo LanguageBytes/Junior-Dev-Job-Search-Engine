@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Title -->
+    <title>Junior Developer Job Search Engine</title>
+    <!-- Description -->
+    <meta
+      name="description"
+      content="Find your first Junior Developer job today in one search."
+    />
+    <!-- Keywords -->
+    <meta name="keywords" content="Junior Developer, Jobs, Search" />
+    <!-- Authors -->
+    <meta name="authors" content="Carla Brown, Emily Mckibben, Sarah Lloyd" />
+
+    <!-- Stylesheets -->
+    <!-- Creative Tim Tailwind Starter Kit -->
+    <link rel="stylesheet" href="assets/compiled-tailwind.css" />
+    <!-- Font Awesome (for Icons) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+
+  <!-- Nav Bar -->
+  <nav
+    class="top-0 absolute z-50 w-full flex flex-wrap items-center justify-between px-2 py-3"
+  >
+    <div
+      class="container px-4 mx-auto flex flex-wrap items-center justify-between"
+    >
+      <div
+        class="w-full text-black relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start"
+      >
+        <!-- Title -->
+        <a> JUNIOR DEV HUB &nbsp; < / > </a>
+
+        <!-- When the screen size is smaller, the nav bar will collapse into a hamburger (see Javascript for function)-->
+        <button
+          class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
+          type="button"
+          onclick="toggleNavbar('example-collapse-navbar')"
+        >
+          <i class="text-black fas fa-bars"></i>
+        </button>
+      </div>
+
+      <!-- Nav Right-hand Side -->
+      <div
+        class="lg:flex flex-grow items-center lg:bg-transparent bg-blueGray-200 lg:shadow-none hidden"
+        id="example-collapse-navbar"
+      >
+        <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
+          <!-- Search-->
+          <li class="flex items-center">
+            <a
+              class="lg:text-black lg:hover:text-gray-300 text-black px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+              href="index.html"
+            >
+              Search
+            </a>
+          </li>
+
+          <!-- Browse Jobs -->
+          <li class="flex items-center">
+            <a
+              class="lg:text-black lg:hover:text-gray-300 text-black px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+              href=""
+            >
+              Browse Jobs
+            </a>
+          </li>
+
+          <!-- Career Advice -->
+          <li class="flex items-center">
+            <a
+              class="lg:text-black lg:hover:text-gray-300 text-black px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+              href=""
+            >
+              Career Advice
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <br />
+    <br />
+    <h2 id="description"></h2>
+  </main>
+  <script src="assets/job-description.js"></script>
+</html>

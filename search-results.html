@@ -3,129 +3,220 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Title -->
     <title>Junior Developer Job Search Engine</title>
     <!-- Description -->
-    <meta name="description" content="Find your first Junior Developer job today in one search.">
+    <meta
+      name="description"
+      content="Find your first Junior Developer job today in one search."
+    />
     <!-- Keywords -->
-    <meta name="keywords" content="Junior Developer, Jobs, Search">
+    <meta name="keywords" content="Junior Developer, Jobs, Search" />
     <!-- Authors -->
-    <meta name="authors" content="Carla Brown, Emily Mckibben, Sarah Lloyd">
-    
+    <meta name="authors" content="Carla Brown, Emily Mckibben, Sarah Lloyd" />
+
     <!-- Stylesheets -->
-     <!-- Creative Tim Tailwind Starter Kit -->
-    <link rel="stylesheet" href="assets/compiled-tailwind.css">
+    <!-- Creative Tim Tailwind Starter Kit -->
+    <link rel="stylesheet" href="assets/compiled-tailwind.css" />
     <!-- Font Awesome (for Icons) -->
-    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
     <link rel="stylesheet" href="assets/style.css" />
-
-
   </head>
 
-                                                            <!-- Nav Bar -->
-  <nav class="top-0 absolute z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 ">
-    <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
-      <div class="w-full text-black relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
-
+  <!-- Nav Bar -->
+  <nav
+    class="top-0 absolute z-50 w-full flex flex-wrap items-center justify-between px-2 py-3"
+  >
+    <div
+      class="container px-4 mx-auto flex flex-wrap items-center justify-between"
+    >
+      <div
+        class="w-full text-black relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start"
+      >
         <!-- Title -->
-        <a> JUNIOR DEV HUB &nbsp; < / > </a>
-          
+        <h1> JUNIOR DEV UK &nbsp; < / > </h1>
+
         <!-- When the screen size is smaller, the nav bar will collapse into a hamburger (see Javascript for function)-->
-          <button class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
-          type="button" onclick="toggleNavbar('example-collapse-navbar')"> <i class="text-black fas fa-bars"></i>
-         </button>
+        <button
+          class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
+          type="button"
+          onclick="toggleNavbar('example-collapse-navbar')"
+        >
+          <i class="text-black fas fa-bars"></i>
+        </button>
       </div>
 
       <!-- Nav Right-hand Side -->
-      <div class="lg:flex flex-grow items-center lg:bg-transparent bg-blueGray-200 lg:shadow-none hidden"
-        id="example-collapse-navbar">
-   
-        <ul class="flex flex-col lg:flex-row list-none lg:ml-auto ">
-
-           <!-- Search-->
+      <div
+        class="lg:flex flex-grow items-center lg:bg-transparent bg-blueGray-200 lg:shadow-none hidden"
+        id="example-collapse-navbar"
+      >
+        <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
+          <!-- Search-->
           <li class="flex items-center">
             <a
               class="lg:text-black lg:hover:text-gray-300 text-black px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-              href="index.html"> Search </a>
+              href="index.html"
+            >
+              Search
+            </a>
           </li>
 
           <!-- Browse Jobs -->
           <li class="flex items-center">
             <a
               class="lg:text-black lg:hover:text-gray-300 text-black px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-              href=""> Browse Jobs </a>
+              href=""
+            >
+              Browse Jobs
+            </a>
           </li>
 
           <!-- Career Advice -->
           <li class="flex items-center">
             <a
               class="lg:text-black lg:hover:text-gray-300 text-black px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-              href=""> Career Advice </a>
+              href=""
+            >
+              Career Advice
+            </a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 
-
   <main>
                                                          <!-- Jobs List -->
     <div class="relative bg-white-600 md:pt-32 pb-32 pt-12">
-      <div class="px-4 md:px-10 mx-auto w-full">
-        
 
+  <!-- Page Split into 3 Columns (Some CSS styling had to also be declared on here as on deployed github page was not being displayed) -->
+<div class="row">
 
-              <!-- Jobs Container -->
-              <table class="items-center w-full bg-transparent border-collapse">
-                <thead>
-                  <tr>
-                    <th class="px-6 p-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold">
-                      <p-6> Jobs </p>
-                    </th>
-                  </tr>
-                </thead>
+  <!-- Column 1 = Side Bar -->
+  <div class="column left" style="background-color:rgb(169, 231, 236);  float: left;
+  padding: 10px; width:25%">
+    <h2 class="align-center">Search</h2>
+    <br>
+    <!-- Search Input -->
+    <form target="search-results.html" method="POST">
+    <div class="mb-3 pt-0">
+      <input type="text" id="location-input" class="px-2 py-1 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full" placeholder="Enter a location">
+    </div>
+    <!-- Search Button -->
+    <div class="flex justify-end mt-6">
+      <button id ="search-button" class="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600"> Search  </button>
+     </div>
 
-                <!-- Where the Results will be displayed -->
-                <tbody id="results">
-                  <tr>
-                    <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                      Job listings will be displayed in here
-                    </th>
-                  </tr>
-                  
-                 
-                </tbody>
-              </table>
+    <br> <br>
+    <h2 class="align-center"> Filters </h2>
+<br>
 
+<br> 
 
-        </div>
-      </div>
-      </main>
-      
+<h2> Salary </h2> <br>
+    <select id="minimum-salary-input">
+      <option value="" disabled selected>Select Min Salary</option>
+      <option value="16000"> £16,000 </option>
+      <option value="20000"> £22,000 </option>
+      <option value="26000"> £26,000 </option>
+      <option value="30000"> £30,000 </option>
+      <option value="40000"> £40,000 </option>
+      <option value="50000"> £50,000 </option>
+    </select>
+
+    <br> <br>
+
     
 
-                                                   <!-- Side Bar to go either here or above Jobs List -->       
-                                                             
-                                                             
+<select id="maximum-salary-input">
+  <option value="" disabled selected>Select Max Salary</option>
+  <option value="16000"> £16,000 </option>
+  <option value="20000"> £22,000 </option>
+  <option value="26000"> £26,000 </option>
+  <option value="30000"> £30,000 </option>
+  <option value="40000"> £40,000 </option>
+  <option value="50000"> £50,000 </option>
+</select>
+<br> <br>
+
+    <!-- Languages -->
+<h2>Keywords</h2>
+<br>
+<select id="language-input">
+  <option value="" disabled selected>Select Language</option>
+  <option value="Javascript">Javascript</option>
+  <option value="CSS">CSS</option>
+  <option value="HTML">HTML</option>
+  <option value="Ruby">Ruby</option>
+  <option value="Python">Python</option>
+  <option value="Node">Node</option>
+  <option value="React">React</option>
+  <option value="Objective C">Objective C</option>
+  <option value="C/C++">C</option>
+  <option value="C#">C#</option>
+  <option value="Java">Java</option>
+  <option value="SQL">SQL</option>
+  <option value="PHP">PHP</option>
+  <option value="Rust">Rust</option>
+  <option value="TypeScript">TypeScript</option>
+  <option value="Groovy">Groovy</option>
+  <option value="Go">Go</option>
+  <option value="Kotlin">Kotlin</option>
+  <option value="Swift">Swift</option>
+  <option value="R">R</option>
+</select>
+
+<br><br>
 
 
+  </div>
 
-                                                           <!-- Footer Section -->
 
+</form>
 
-                                                                               
+   <!-- Column 2 = Search Results -->
+  <div class="column middle" style="background-color:rgb(253, 253, 253);  float: left;
+  padding: 10px; width:50%">
+    <h2 class="align-center">Jobs</h2>
+    <br>
+    <p id ="results"></p>
+    <p id ="results2"></p>
+  </div>
+
+  <!-- Column 3 = LocalStorage -->
+  <div class="column right" style="background-color:rgb(255, 255, 255); float: left;
+  padding:10px; width: 25%;">
+    <h2>Bookmarked Jobs</h2>
+    <br>
+    <p>Bookmarked Jobs Here</p>
+    <p id ="history"></p>
+  </div>
+</div>
+         
+  </main>
+
+  <!-- Footer Section -->
+  
 <footer>
 
-<section class="w-full p-6 bg-gray-600 rounded-md shadow-md">
+  <section class="w-full p-6 mx-auto bg-white-800 rounded-md shadow-md">
+     
+    <p> Contact us
+  </p>
 
-   </section>
-    
-   <p class="p-6 align-text-middle"> Contact us </p>
+  <br> <br> <br>
+
+</section>
 </footer>
 
 
+
   <script src="assets/display-results.js"></script>
-  <body>
-   
+  <body></body>
+</html>

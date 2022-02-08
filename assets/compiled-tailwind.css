@@ -27,16 +27,60 @@ Document
 ========
 */
 
-/**
-Use a better box model (opinionated).
-*/
+* {
+  box-sizing: border-box;
+}
 
+/* Three unequal columns that float next to each other */
+.column {
+  float: left;
+  padding: 10px;
+
+}
+
+.left, .right {
+  width: 25%;
+}
+
+.middle {
+  width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
+.align-center {
+  text-align: center;
+}
+
+.bookmark {
+  background-color: rgb(206, 247, 240);
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.readMore {
+  background-color: rgb(231, 231, 231);
+  padding: 10px;
+  margin-top: 10px;
+  margin-left: 10px;
+  border-radius: 5px;
+}
+
+
+.card-body {
+  padding-left: 40px;
+}
 
 /*
 Sections

@@ -1,4 +1,4 @@
-                                                 // Google Maps
+// Google Maps
 //Displays Google Maps
 let map;
 let wednesburyLatLong = { lat: 52.5529, lng: -2.0221 };
@@ -15,7 +15,6 @@ function initMap() {
     center: wednesburyLatLong,
     zoom: 8,
     mapId: "76d2f6e69ab59646",
-    
   });
   //Markers
   const marker = new google.maps.Marker({
@@ -58,10 +57,9 @@ function initMap() {
     // label: "Sap",
     map: map,
   });
-
-
 }
 
+// <<<<<<< HEAD
 
 //<<<<<<< HEAD
 //  Carlas-Branch
@@ -76,41 +74,41 @@ function initMap() {
 //>>>>>>> f8ebdde4a1ed577467e832cd7de4b07034d3d62a
 // =======
 // Console Test
-main
+// main
+// =======
+// >>>>>>> 950661844fb70376ec120a0bcbded72a47ee1312
 console.log("hello");
 
-                                             // Get Jobs
+// Get Jobs
 
 //id variables from HTML
-var locationInput = document.getElementById ("location-input")
-var searchButton = document.getElementById ("search-button")
-var results = document.getElementById("results")
+var locationInput = document.getElementById("location-input");
+var searchButton = document.getElementById("search-button");
+var results = document.getElementById("results");
 
 // Make a Search and Get Jobs
 var makeSearch = function (event) {
   event.preventDefault();
-  console.log ("button clicked")
+  console.log("button clicked");
   // window.location.href="search-results.html"
- 
+
   // Get search input from user
   var userLocationInput = locationInput.value.trim();
-  console.log(userLocationInput)
+  console.log(userLocationInput);
 
   if (!userLocationInput) {
-    console.error('You need a search input value!');
+    console.error("You need a search input value!");
     return;
   }
 
-  var queryString = './search-results.html?q=' + userLocationInput;
+  var queryString = "./search-results.html?q=" + userLocationInput;
   location.assign(queryString);
-
 };
 
-
 //Event listener for search button
-searchButton.addEventListener("click", makeSearch)
+searchButton.addEventListener("click", makeSearch);
 
-                                                  //  HTML Script
+//  HTML Script
 
 // Collapses Nav Bar on a smaller screen
 function toggleNavbar(collapseID) {
@@ -126,5 +124,4 @@ function toggleNavbar(collapseID) {
   document.getElementById(collapseID).classList.toggle("py-3");
   document.getElementById(collapseID).classList.toggle("px-6");
 }
-
 
