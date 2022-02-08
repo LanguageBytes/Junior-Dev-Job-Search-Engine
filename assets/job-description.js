@@ -41,6 +41,7 @@ https: fetch(queryURL, {
 
     var jobDescription = document.createElement("div");
     jobDescription.textContent = job.jobDescription;
+    jobDescription.setAttribute("style", "color: black");
     resultArea.append(jobDescription);
 
     var closingEl = document.createElement("div");
