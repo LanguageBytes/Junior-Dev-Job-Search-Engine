@@ -1,8 +1,7 @@
 var apiKey = "c8be0d68-4d2d-4751-943b-da6b6d189413";
 var encodedKey = btoa(`${apiKey}:`);
 var authHeader = `Basic ${encodedKey}`;
-//var jobID = document.location.search.split("=").pop();
-var jobID = 45640057;
+var jobID = document.location.search.split("=").pop();
 var corsAnywhereLink = "https://radiant-stream-08604.herokuapp.com/";
 var queryURL =
   corsAnywhereLink + "https://www.reed.co.uk/api/1.0/jobs/" + jobID;
