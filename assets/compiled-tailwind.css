@@ -98,6 +98,13 @@ Document
   padding-left: 40px;
 }
 
+.save {
+  padding:10px;
+  background-color: rgb(217, 220, 224);
+  margin: 10px;
+  display: flex;
+  border-radius: 5px;
+}
 /*
 Sections
 ========
