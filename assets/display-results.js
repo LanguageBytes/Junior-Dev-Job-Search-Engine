@@ -36,25 +36,32 @@ function toggleNavbar(collapseID) {
   document.getElementById(collapseID).classList.toggle("px-6");
 }
 
-//Global Variables
+//HTML Variables
+
 var searchButton = document.getElementById("search-button");
 var results = document.getElementById("results");
+var stored = document.getElementById("history");
 
-                                      //  Get Jobs on Previous Page Search
-//   Get Search from Previous Page
+// Redirected from Homepage Search
+
+// Get Search Input from the Previous Page
 function getJobs() {
+  //Takes the homepage search results from the querystring
+  var location = document.location.search.split("=").pop();
+
+  // Reed Variables
   var apiKey = "c8be0d68-4d2d-4751-943b-da6b6d189413";
   var encodedKey = btoa(`${apiKey}:`);
   var authHeader = `Basic ${encodedKey}`;
-  var keywords = "junior%20developer"; 
-  var location = document.location.search.split("=").pop();
+  var keywords = "junior%20developer";
   var corsAnywhereLink = "https://radiant-stream-08604.herokuapp.com/";
+
   var queryURL =
     corsAnywhereLink +
     "https://www.reed.co.uk/api/1.0/search?keywords=" +
-    keywords + 
+    keywords +
     "&locationName=" +
-    location + 
+    location +
     "&distanceFromLocation=" +
     10;
 
@@ -65,23 +72,28 @@ function getJobs() {
     },
   })
     .then(function (res) {
-      console.log (res);
+      console.log(res);
       return res.json();
-      
     })
     .then(function (jobs) {
       console.log(jobs);
       console.log(jobs.results[0].employerName);
+
+      // Creates cards in the HTML for each job
       for (var i = 0; i < jobs.results.length; i++) {
         var resultArea = document.getElementById("results");
+
         var resultCard = document.createElement("div");
-        resultCard.setAttribute("id", "discardLater")
+        resultCard.setAttribute("id", "discardLater");
         resultCard.classList.add("card-body");
         resultArea.append(resultCard);
 
         var jobTypeEl = document.createElement("a");
         jobTypeEl.textContent = jobs.results[i].jobTitle;
-        jobTypeEl.setAttribute("href", "./description-page.html");
+        var jobId = jobs.results[i].jobId;
+        var descriptionLink = "./description-page.html?q=" + jobId;
+        document.location.assign(descriptionLink);
+        jobTypeEl.setAttribute("href", descriptionLink);
         resultCard.append(jobTypeEl);
 
         var locationEl = document.createElement("div");
@@ -105,16 +117,9 @@ function getJobs() {
           "Closing date: " + jobs.results[i].expirationDate;
         resultCard.append(closingEl);
 
-        var bookmarkEl = document.createElement("button");
-        bookmarkEl.textContent =
-          "Save";
-        bookmarkEl.classList.add('bookmark')
-        resultCard.append(bookmarkEl);
-      
         var readMoreEl = document.createElement("button");
-        readMoreEl.textContent =
-          "Read Description";
-        readMoreEl.classList.add('readMore')
+        readMoreEl.textContent = "Read Description";
+        readMoreEl.classList.add("readMore");
         resultCard.append(readMoreEl);
 
         var cardBreak = document.createElement("br");
@@ -125,49 +130,58 @@ function getJobs() {
       }
     });
 }
-getJobs()
 
-                                                // Search with Filters
-doSearch = function(event) {
-  event.preventDefault()
+getJobs();
 
-  // This will get rid of the previous searches by removing the 'discardLater' id (child of #results)
+// Search on Page with Filters
+newSearch = function (event) {
+  event.preventDefault();
+
+  //This will get rid of the previous searches by removing the 'discardLater' id added to resultCard (child of #results)
   function removeAllChildNodes(parent) {
     while (parent.firstChild) {
-        parent.removeChild(parent.firstChild);
+      parent.removeChild(parent.firstChild);
     }
   }
-  var previous = document.querySelector('#results');
+  var previous = document.querySelector("#results");
   removeAllChildNodes(previous);
- 
-  // Make Search with Filters
 
+  //This process is the same as getJobs but with filters added to it and local storage added
+
+  // Reed Variables
   var apiKey = "c8be0d68-4d2d-4751-943b-da6b6d189413";
   var encodedKey = btoa(`${apiKey}:`);
   var authHeader = `Basic ${encodedKey}`;
-  var keywords = ["junior%20developer%20", language]; 
+  var keywords = ["junior%20developer%20", language];
+  var corsAnywhereLink = "https://radiant-stream-08604.herokuapp.com/";
+
+  //FILTERS
   var language = document.getElementById("language-input").value;
   var locationInput = document.getElementById("location-input");
   var minimumSalary = document.getElementById("minimum-salary-input").value;
   var maximumSalary = document.getElementById("maximum-salary-input").value;
   var userLocationInput = locationInput.value.trim();
   console.log(userLocationInput);
-  var corsAnywhereLink = "https://radiant-stream-08604.herokuapp.com/";
 
-
-  if (!userLocationInput) {
-    console.error("You need a search input value, you silly banana!");
-    return;
-  }
-
+  // URL
   var queryURL =
     corsAnywhereLink +
     "https://www.reed.co.uk/api/1.0/search?keywords=" +
     keywords +
     "&locationName=" +
-    userLocationInput + 
+    userLocationInput +
     "&distanceFromLocation=" +
-    20 + "&minimumSalary=" + minimumSalary + "&maximumSalary=" + maximumSalary;
+    20 +
+    "&minimumSalary=" +
+    minimumSalary +
+    "&maximumSalary=" +
+    maximumSalary;
+
+  // if the user has not entered a search term
+  if (!userLocationInput) {
+    console.error("You need a search input value, you silly banana!");
+    return;
+  }
 
   // Fetch Request
   fetch(queryURL, {
@@ -176,28 +190,27 @@ doSearch = function(event) {
     },
   })
     .then(function (res) {
-      console.log (res);
+      console.log(res);
       return res.json();
-      
     })
     .then(function (jobs) {
       console.log(jobs);
       console.log(jobs.results[0].employerName);
 
-
+      //Creates cards in the HTML for each job
       for (var i = 0; i < jobs.results.length; i++) {
         var resultArea = document.getElementById("results");
         var resultCard = document.createElement("div");
-        resultCard.setAttribute("id", "discardLater")
+        resultCard.setAttribute("id", "discardLater");
         resultCard.classList.add("card-body");
         resultArea.append(resultCard);
 
-        var jobTypeEl = document.createElement("h4");
+        var jobTypeEl = document.createElement("a");
         jobTypeEl.textContent = jobs.results[i].jobTitle;
-        //link here for next page if click on job title
-        var jobLinkEl = document.createElement("a");
-        jobLinkEl.setAttribute("src", "./description-page.html");
-        jobTypeEl.append(jobLinkEl);
+        var jobId = jobs.results[i].jobId;
+        var descriptionLink = "./description-page.html?q=" + jobId;
+        document.location.assign(descriptionLink);
+        jobTypeEl.setAttribute("href", descriptionLink);
         resultCard.append(jobTypeEl);
 
         var locationEl = document.createElement("div");
@@ -221,16 +234,9 @@ doSearch = function(event) {
           "Closing date: " + jobs.results[i].expirationDate;
         resultCard.append(closingEl);
 
-        var bookmarkEl = document.createElement("button");
-        bookmarkEl.textContent =
-          "Save";
-        bookmarkEl.classList.add('bookmark')
-        resultCard.append(bookmarkEl);
-      
         var readMoreEl = document.createElement("button");
-        readMoreEl.textContent =
-          "Read Description";
-        readMoreEl.classList.add('readMore')
+        readMoreEl.textContent = "Read Description";
+        readMoreEl.classList.add("readMore");
         resultCard.append(readMoreEl);
 
         var cardBreak = document.createElement("br");
@@ -240,14 +246,7 @@ doSearch = function(event) {
         resultCard.append(cardBreak);
       }
     });
-  }
-
-                                              // Bookmark a job
-
-var addBookmark = function (event){
- event.preventDefault()
-}
-
+};
 
 //Event listener for search button
 searchButton.addEventListener("click", doSearch);
