@@ -64,7 +64,6 @@ var cities = [];
       stored.append(keepCity);
     }
   }
-
   function pushCity() {
     var searchedCity = document.location.search.split("=").pop();
     console.log("saved search" + searchedCity);
@@ -75,6 +74,7 @@ var cities = [];
   }
 
   pushCity()
+  
 // Redirected from Homepage Search
 
 // Get Search from Previous Page
