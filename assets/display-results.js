@@ -92,7 +92,7 @@ function getJobs() {
         jobTypeEl.textContent = jobs.results[i].jobTitle;
         var jobId = jobs.results[i].jobId;
         var descriptionLink = "./description-page.html?q=" + jobId;
-        location.assign(descriptionLink);
+        document.location.assign(descriptionLink);
         jobTypeEl.setAttribute("href", descriptionLink);
         resultCard.append(jobTypeEl);
 
@@ -205,12 +205,12 @@ newSearch = function (event) {
         resultCard.classList.add("card-body");
         resultArea.append(resultCard);
 
-        var jobTypeEl = document.createElement("h4");
+        var jobTypeEl = document.createElement("a");
         jobTypeEl.textContent = jobs.results[i].jobTitle;
-        //link here for next page if click on job title
-        var jobLinkEl = document.createElement("a");
-        jobLinkEl.setAttribute("src", "./description-page.html");
-        jobTypeEl.append(jobLinkEl);
+        var jobId = jobs.results[i].jobId;
+        var descriptionLink = "./description-page.html?q=" + jobId;
+        document.location.assign(descriptionLink);
+        jobTypeEl.setAttribute("href", descriptionLink);
         resultCard.append(jobTypeEl);
 
         var locationEl = document.createElement("div");
