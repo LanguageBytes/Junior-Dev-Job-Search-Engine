@@ -256,6 +256,6 @@ bookmarkEl.addEventListener("click", addBookmark)
 
 
 //Add event listener to save button
-//Set item to local storage on click
+//Set item to local storage when save clicked
 //Get item from local storage
 //Display items from local storage
