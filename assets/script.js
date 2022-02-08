@@ -64,6 +64,7 @@ function initMap() {
 
 
 //<<<<<<< HEAD
+//  Carlas-Branch
 //Marker
   // function addMarker() {
   //}
@@ -73,9 +74,12 @@ function initMap() {
 //=======
 // Console Test
 //>>>>>>> f8ebdde4a1ed577467e832cd7de4b07034d3d62a
+// =======
+// Console Test
+main
 console.log("hello");
 
-                                             // Search and Get Jobs
+                                             // Get Jobs
 
 //id variables from HTML
 var locationInput = document.getElementById ("location-input")
@@ -87,47 +91,24 @@ var makeSearch = function (event) {
   event.preventDefault();
   console.log ("button clicked")
   // window.location.href="search-results.html"
-
+ 
+  // Get search input from user
   var userLocationInput = locationInput.value.trim();
   console.log(userLocationInput)
 
-  // REED Variables
-  var apiKey = "c8be0d68-4d2d-4751-943b-da6b6d189413";
-  var encodedKey = btoa(`${apiKey}:`);
-  var authHeader = `Basic ${encodedKey}`;
-  var keywords = "junior%20developer";
-  var corsAnywhereLink = "https://radiant-stream-08604.herokuapp.com/";
-  var queryURL =
-  corsAnywhereLink +
-  "https://www.reed.co.uk/api/1.0/search?keywords=" +
-  keywords + "&locationName=" + userLocationInput + "&distanceFromLocation=" + 10;
- 
-  // Fetch Request
-  fetch(queryURL, {
-    headers: {
-      Authorization: authHeader,
-    },
-  })
-    .then(jsonResponse)
-    .then(returnJobs);
+  if (!userLocationInput) {
+    console.error('You need a search input value!');
+    return;
+  }
 
-    function jsonResponse(res) {
-      return res.json();
-    }
-    
-    function returnJobs(results) {
-      console.log(results);
-    }
+  var queryString = './search-results.html?q=' + userLocationInput;
+  location.assign(queryString);
+
 };
+
 
 //Event listener for search button
 searchButton.addEventListener("click", makeSearch)
-
-
-
-
-
-
 
                                                   //  HTML Script
 
