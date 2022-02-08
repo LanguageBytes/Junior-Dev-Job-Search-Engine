@@ -114,8 +114,18 @@ function getJobs() {
 
         var jobTypeEl = document.createElement("a");
         jobTypeEl.textContent = jobs.results[i].jobTitle;
-        jobTypeEl.setAttribute("href", "./description-page.html");
+        jobTypeEl.setAttribute("style", "color: purple");
+        var jobId = jobs.results[i].jobId;
+        var descriptionLink = "./description-page.html?q=" + jobId;
+        jobTypeEl.setAttribute("href", descriptionLink);
         resultCard.append(jobTypeEl);
+
+        // var jobTypeEl = document.createElement("h2");
+        // jobTypeEl.textContent = jobs.results[i].jobTitle;
+        // // var jobId = jobs.results[i].jobId;
+        // // var descriptionLink = "./description-page.html?q=" + jobId;
+        // // jobTypeEl.setAttribute("href", descriptionLink);
+        // resultCard.append(jobTypeEl);
 
         var locationEl = document.createElement("div");
         locationEl.textContent = "Location: " + jobs.results[i].locationName;
@@ -138,11 +148,12 @@ function getJobs() {
           "Closing date: " + jobs.results[i].expirationDate;
         resultCard.append(closingEl);
 
-        var readMoreEl = document.createElement("button");
-        readMoreEl.textContent =
-          "Read Description";
-        readMoreEl.classList.add('readMore')
-        resultCard.append(readMoreEl);
+        // var readMoreEl = document.createElement("button");
+        // readMoreEl.textContent = "Read Description";
+        // readMoreEl.classList.add("readMore");
+
+        //resultCard.append(readMoreEl);
+
 
         var cardBreak = document.createElement("br");
         resultCard.append(cardBreak);
@@ -265,15 +276,19 @@ for (var i = 0; i < userHistory.length; i++) {
         resultCard.classList.add("card-body");
         resultArea.append(resultCard);
           
-
-        var jobTypeEl = document.createElement("h4");
+        //link created to take to next page for job description
+        var jobTypeEl = document.createElement("a");
         jobTypeEl.textContent = jobs.results[i].jobTitle;
-
-        //link here for next page if click on job title
-        var jobLinkEl = document.createElement("a");
-        jobLinkEl.setAttribute("src", "./description-page.html");
-        jobTypeEl.append(jobLinkEl);
+        jobTypeEl.setAttribute("style", "color: purple");
+        var jobId = jobs.results[i].jobId;
+        var descriptionLink = "./description-page.html?q=" + jobId;
+        jobTypeEl.setAttribute("href", descriptionLink);
         resultCard.append(jobTypeEl);
+        //link assigned only if clicked
+        jobTypeEl.addEventListener("click", function () {
+          document.location.assign(descriptionLink);
+        });
+
 
         var locationEl = document.createElement("div");
         locationEl.textContent = "Location: " + jobs.results[i].locationName;
@@ -296,11 +311,12 @@ for (var i = 0; i < userHistory.length; i++) {
           "Closing date: " + jobs.results[i].expirationDate;
         resultCard.append(closingEl);
 
-        var readMoreEl = document.createElement("button");
-        readMoreEl.textContent =
-          "Read Description";
-        readMoreEl.classList.add('readMore')
-        resultCard.append(readMoreEl);
+
+       
+
+       
+
+       
 
         var cardBreak = document.createElement("br");
         resultCard.append(cardBreak);
@@ -318,6 +334,7 @@ for (var i = 0; i < userHistory.length; i++) {
     }
 
 //Event listener for search button
+searchButton.addEventListener("click", doSearch);
+// Event listener for bookmark button
+bookmarkEl.addEventListener("click", addBookmark);
 searchButton.addEventListener("click", newSearch);
-
-
