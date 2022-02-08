@@ -21,19 +21,23 @@ https: fetch(queryURL, {
     //elements creates and info rendered to page
     var resultArea = document.getElementById("description");
     resultArea.textContent = job.jobTitle;
+    resultArea.setAttribute("style", "color: purple");
 
     var locationEl = document.createElement("div");
     locationEl.textContent = "Location: " + job.locationName;
     resultArea.append(locationEl);
+    locationEl.setAttribute("style", "color: purple");
 
     var employerEl = document.createElement("div");
     employerEl.textContent = "Employer: " + job.employerName;
     resultArea.append(employerEl);
+    employerEl.setAttribute("style", "color: purple");
 
     var salaryEl = document.createElement("div");
     salaryEl.textContent =
       "Salary: £" + job.minimumSalary + "-" + job.maximumSalary;
     resultArea.append(salaryEl);
+    salaryEl.setAttribute("style", "color: purple");
 
     var jobDescription = document.createElement("div");
     jobDescription.textContent = job.jobDescription;
@@ -41,10 +45,12 @@ https: fetch(queryURL, {
 
     var closingEl = document.createElement("div");
     closingEl.textContent = "Closing date: " + job.expirationDate;
+    closingEl.setAttribute("style", "color: red");
     resultArea.append(closingEl);
 
     var applyLink = document.createElement("a");
     applyLink.setAttribute("href", job.jobUrl);
+    applyLink.setAttribute("style", "color: purple");
     applyLink.textContent = "Apply Here";
 
     resultArea.append(applyLink);
