@@ -149,6 +149,7 @@ doSearch = function(event) {
   var language = document.getElementById("language-input").value;
   var locationInput = document.getElementById("location-input");
   var minimumSalary = document.getElementById("minimum-salary-input").value;
+  var maximumSalary = document.getElementById("maximum-salary-input").value;
   var userLocationInput = locationInput.value.trim();
   console.log(userLocationInput);
   var corsAnywhereLink = "https://radiant-stream-08604.herokuapp.com/";
@@ -166,7 +167,7 @@ doSearch = function(event) {
     "&locationName=" +
     userLocationInput + 
     "&distanceFromLocation=" +
-    20 + "&minimumSalary=" + minimumSalary;
+    20 + "&minimumSalary=" + minimumSalary + "&maximumSalary=" + maximumSalary;
 
   // Fetch Request
   fetch(queryURL, {
