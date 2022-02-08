@@ -119,11 +119,14 @@ function getJobs() {
           "Closing date: " + jobs.results[i].expirationDate;
         resultCard.append(closingEl);
 
+<<<<<<< Updated upstream
         var readMoreEl = document.createElement("button");
         readMoreEl.textContent = "Read Description";
         readMoreEl.classList.add("readMore");
         resultCard.append(readMoreEl);
 
+=======
+>>>>>>> Stashed changes
         var cardBreak = document.createElement("br");
         resultCard.append(cardBreak);
 
@@ -239,11 +242,14 @@ newSearch = function (event) {
           "Closing date: " + jobs.results[i].expirationDate;
         resultCard.append(closingEl);
 
+<<<<<<< Updated upstream
         var readMoreEl = document.createElement("button");
         readMoreEl.textContent = "Read Description";
         readMoreEl.classList.add("readMore");
         resultCard.append(readMoreEl);
 
+=======
+>>>>>>> Stashed changes
         var cardBreak = document.createElement("br");
         resultCard.append(cardBreak);
 
