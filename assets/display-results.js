@@ -47,34 +47,37 @@ var cities = [];
 
 // Get Local Storage from Previous Searches
 
-  //Get any local Storage from previous searches
-  if (localStorage.getItem("previousSearchData")) {
-    cities = localStorage.getItem("previousSearchData");
+//Get any local Storage from previous searches
+if (localStorage.getItem("previousSearchData")) {
+  cities = localStorage.getItem("previousSearchData");
 
-    //Will add the user's history to the empty cities array above
-    var userHistory = [];
-    userHistory = cities.split(",");
-    cities = userHistory;
+  //Will add the user's history to the empty cities array above
+  var userHistory = [];
+  userHistory = cities.split(",");
+  cities = userHistory;
 
-    //For each city searched, keep it stored on the page under the form column as a button
-    for (var i = 0; i < userHistory.length; i++) {
-      var keepCity = document.createElement("button");
-      keepCity.classList.add("save");
-      keepCity.innerHTML = userHistory[i];
-      stored.append(keepCity);
-    }
+  //For each city searched, keep it stored on the page under the form column as a button
+  for (var i = 0; i < userHistory.length; i++) {
+    var keepCity = document.createElement("button");
+    keepCity.classList.add("save");
+    keepCity.innerHTML = userHistory[i];
+    stored.append(keepCity);
+    keepCity.addEventListener("click", function () {
+      console.log("click!");
+    });
   }
-  function pushCity() {
-    var searchedCity = document.location.search.split("=").pop();
-    console.log("saved search" + searchedCity);
-    var addCityArray = cities;
-    addCityArray.push(searchedCity);
-    //Will save it in local storage
-    localStorage.setItem("previousSearchData", addCityArray);
-  }
+}
+function pushCity() {
+  var searchedCity = document.location.search.split("=").pop();
+  console.log("saved search" + searchedCity);
+  var addCityArray = cities;
+  addCityArray.push(searchedCity);
+  //Will save it in local storage
+  localStorage.setItem("previousSearchData", addCityArray);
+}
 
-  pushCity()
-  
+pushCity();
+
 // Redirected from Homepage Search
 
 // Get Search from Previous Page
@@ -273,10 +276,9 @@ newSearch = function (event) {
 
         var cardBreak = document.createElement("br");
         resultCard.append(cardBreak);
-    }
-  }
-    )
-}
+      }
+    });
+};
 
 //Event listener for search button
 searchButton.addEventListener("click", doSearch);
