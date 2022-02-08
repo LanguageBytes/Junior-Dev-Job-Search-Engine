@@ -36,6 +36,11 @@ function toggleNavbar(collapseID) {
   document.getElementById(collapseID).classList.toggle("px-6");
 }
 
+//Global Variables
+var searchButton = document.getElementById("search-button");
+var results = document.getElementById("results");
+
+                                      //  Get Jobs on Previous Page Search
 //   Get Search from Previous Page
 function getJobs() {
   var apiKey = "c8be0d68-4d2d-4751-943b-da6b6d189413";
@@ -120,18 +125,13 @@ function getJobs() {
       }
     });
 }
-
-
 getJobs()
 
-var searchButton = document.getElementById("search-button");
-var results = document.getElementById("results");
-
-// Search Again
+                                                // Search with Filters
 doSearch = function(event) {
   event.preventDefault()
 
-  // This will get rid of the previous searches by removing the 'discardLater' id added
+  // This will get rid of the previous searches by removing the 'discardLater' id (child of #results)
   function removeAllChildNodes(parent) {
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
@@ -155,7 +155,7 @@ doSearch = function(event) {
 
 
   if (!userLocationInput) {
-    console.error("You need a search input value, fool!");
+    console.error("You need a search input value, you silly banana!");
     return;
   }
 
@@ -239,10 +239,9 @@ doSearch = function(event) {
         resultCard.append(cardBreak);
       }
     });
-
-
-
   }
+
+                                              // Bookmark a job
 
 var addBookmark = function (event){
  event.preventDefault()
