@@ -16,6 +16,7 @@ function initMap() {
     zoom: 8,
     mapId: "76d2f6e69ab59646",
   });
+  //Markers
   const marker = new google.maps.Marker({
     position: softcat,
     // label: "softcat",
@@ -58,6 +59,24 @@ function initMap() {
   });
 }
 
+// <<<<<<< HEAD
+
+//<<<<<<< HEAD
+//  Carlas-Branch
+//Marker
+  // function addMarker() {
+  //}
+ 
+
+
+//=======
+// Console Test
+//>>>>>>> f8ebdde4a1ed577467e832cd7de4b07034d3d62a
+// =======
+// Console Test
+// main
+// =======
+// >>>>>>> 950661844fb70376ec120a0bcbded72a47ee1312
 console.log("hello");
 
 // Get Jobs
@@ -105,3 +124,4 @@ function toggleNavbar(collapseID) {
   document.getElementById(collapseID).classList.toggle("py-3");
   document.getElementById(collapseID).classList.toggle("px-6");
 }
+

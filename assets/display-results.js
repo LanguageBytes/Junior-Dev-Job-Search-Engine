@@ -254,4 +254,12 @@ newSearch = function (event) {
 };
 
 //Event listener for search button
-searchButton.addEventListener("click", newSearch);
+searchButton.addEventListener("click", doSearch);
+// Event listener for bookmark button 
+bookmarkEl.addEventListener("click", addBookmark)
+
+
+//Add event listener to save button
+//Set item to local storage when save clicked
+//Get item from local storage
+//Display items from local storage
