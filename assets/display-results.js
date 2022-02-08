@@ -226,7 +226,9 @@ newSearch = function (event) {
     var searchedCity = document.getElementById("location-input").value.trim();
     console.log("saved search" + searchedCity);
     var addCityArray = cities;
-    addCityArray.push(searchedCity);
+    if (!addCityArray.includes(searchedCity)) {
+      addCityArray.push(searchedCity);
+    }
     //Will save it in local storage
     localStorage.setItem("previousSearchData", addCityArray);
   }
