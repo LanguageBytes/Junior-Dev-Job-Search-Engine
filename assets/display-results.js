@@ -92,8 +92,8 @@ function getJobs() {
         jobTypeEl.textContent = jobs.results[i].jobTitle;
         var jobId = jobs.results[i].jobId;
         var descriptionLink = "./description-page.html?q=" + jobId;
-        jobTypeEl.setAttribute("href", descriptionLink);
         location.assign(descriptionLink);
+        jobTypeEl.setAttribute("href", descriptionLink);
         resultCard.append(jobTypeEl);
 
         var locationEl = document.createElement("div");
