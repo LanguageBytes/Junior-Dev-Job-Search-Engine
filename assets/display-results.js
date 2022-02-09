@@ -139,7 +139,7 @@ function getJobs() {
 
         var salaryEl = document.createElement("div");
         salaryEl.textContent =
-          "Salary: £" +
+          "Salary:  £" +
           jobs.results[i].minimumSalary +
           "-" +
           jobs.results[i].maximumSalary;
@@ -190,6 +190,8 @@ newSearch = function (event) {
   var maximumSalary = document.getElementById("maximum-salary-input").value;
   var distanceFromLocation = document.getElementById("tickmarks").value
   var temp = document.getElementById("type").value
+  var permanent = document.getElementById("permanent").value
+  var contract = document.getElementById("contract").value
   var userLocationInput = locationInput.value.trim();
   console.log(userLocationInput);
 
@@ -206,7 +208,7 @@ newSearch = function (event) {
     minimumSalary +
     "&maximumSalary=" +
     maximumSalary
-    + "&temp=" + temp;
+    + "&temp=" + temp + "&permanent=" + permanent + "&contract" + contract;
 
   // if the user has not entered a search term
   if (!userLocationInput) {
@@ -259,12 +261,13 @@ newSearch = function (event) {
         resultCard.append(employerEl);
 
         var salaryEl = document.createElement("div");
-        salaryEl.textContent =
-          "Salary: £" +
+        salaryEl.textContent = 
+        "Salary: " +
           jobs.results[i].minimumSalary +
           "-" +
           jobs.results[i].maximumSalary;
         resultCard.append(salaryEl);
+        
 
         var closingEl = document.createElement("div");
         closingEl.textContent =
