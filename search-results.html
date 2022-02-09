@@ -39,7 +39,7 @@
         class="w-full text-black relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start"
       >
         <!-- Title -->
-        <h1> JUNIOR DEV UK &nbsp; < / > </h1>
+        <h1> JUNIOR DEV HUB &nbsp; < / > </h1>
 
         <!-- When the screen size is smaller, the nav bar will collapse into a hamburger (see Javascript for function)-->
         <button
@@ -99,12 +99,14 @@
 <div class="row">
 
   <!-- Column 1 = Side Bar -->
-  <div class="column left" style="background-color:rgb(169, 231, 236);  float: left;
+  <div class="column left" style="background-color:rgb(255, 255, 255);  float: left;
   padding: 10px; width:25%">
     <h2 class="align-center">Search</h2>
     <br>
+    <br>
+    <br>
     <!-- Search Input -->
-    <form target="search-results.html" method="POST">
+    <form target="search-results.html" method="">
     <div class="mb-3 pt-0">
       <input type="text" id="location-input" class="px-2 py-1 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full" placeholder="Enter a location">
     </div>
@@ -119,10 +121,29 @@
 <br>
 <br> 
 
+<h2> Distance from Location</h2> <br>
+
+<p>Miles</p>
+<input type="range" list="tickmarks">
+<datalist id="tickmarks">
+<option value="10"label="10"></option>
+<option value="20"></option>
+<option value="30"></option>
+<option value="40"></option>
+<option value="50"></option>
+<option value="60"></option>
+<option value="70"></option>
+<option value="80"></option>
+<option value="90"></option>
+<option value="100" label="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 100"></option>
+</datalist>
+
+
+<br> <br>
 <h2> Salary </h2> <br>
 
 <!-- Minimum -->
-    <select id="minimum-salary-input">
+    <select id="minimum-salary-input" class="custom-select">
       <option value="" disabled selected>Minimum Salary</option>
       <option value="16000"> £16,000 </option>
       <option value="20000"> £22,000 </option>
@@ -136,7 +157,7 @@
 
     
 <!-- Maximum -->
-<select id="maximum-salary-input">
+<select id="maximum-salary-input" class="custom-select">
   <option value="" disabled selected>Maximum Salary</option>
   <option value="16000"> £16,000 </option>
   <option value="20000"> £22,000 </option>
@@ -147,10 +168,25 @@
 </select>
 <br> <br>
 
+
+<form id="type">
+  <input type="checkbox" id="temp" name="temp" value="true">
+  <label for="temp"> Temporary </label><br>
+</form>
+
+<br>
+
+<form id="type">
+  <input type="checkbox" id="permanent" name="permanent" value="true">
+  <label for="permanent"> Permanent </label><br>
+</form>
+
+<br>
+
     <!-- Keywords -->
 <h2>Keywords</h2>
 <br>
-<select id="language-input">
+<select id="language-input" class="custom-select">
   <option value="" disabled selected>Select Language</option>
   <option value="Javascript">Javascript</option>
   <option value="CSS">CSS</option>
@@ -184,19 +220,20 @@
 
    <!-- Column 2 = Search Results -->
   <div class="column middle" style="background-color:rgb(253, 253, 253);  float: left;
-  padding: 10px; width:50%">
+  padding: 15px; width:55%">
     <h2 class="align-center">Jobs</h2>
     <br>
     <p id ="results"></p>
-    <p id ="results2"></p>
+
   </div>
 
   <!-- Column 3 = LocalStorage -->
   <div class="column right" style="background-color:rgb(255, 255, 255); float: left;
-  padding:10px; width: 25%;">
-    <h2>Your Searches</h2>
+  padding:10px; width: 20%;">
+<h2 class="align-center">Previous Searches</h2>
+  <br>
     <br>
-    <p id ="history"></p>
+    <p id="history"></p>
   </div>
 </div>
          

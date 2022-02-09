@@ -39,7 +39,7 @@
         class="w-full text-black relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start"
       >
         <!-- Title -->
-        <a> JUNIOR DEV HUB &nbsp; < / > </a>
+        <a> JUNIOR DEV HUB &nbsp; </a>
 
         <!-- When the screen size is smaller, the nav bar will collapse into a hamburger (see Javascript for function)-->
         <button
@@ -78,7 +78,7 @@
           </li>
 
           <!-- Career Advice -->
-          <li class="flex items-center">
+          <!-- <li class="flex items-center">
             <a
               class="lg:text-black lg:hover:text-gray-300 text-black px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
               href=""
@@ -86,15 +86,38 @@
               Career Advice
             </a>
           </li>
-        </ul>
+        </ul> -->
       </div>
     </div>
   </nav>
 
   <main>
-    <br />
-    <br />
-    <h2 id="description"></h2>
+      <!-- Column 1 = Side Bar -->
+      <div class="relative bg-white-600 md:pt-32 pb-32 pt-12">
+        <div class="row">
+          <div class="column2 middle">
+ <p id="description"></p>
+  </div>
+  </div>
+</div>
   </main>
+
+  <p class="align-center"> View on Map</p>
+  <br>
+
+    <input
+      id="pac-input"
+      class="controls"
+      type="text"
+      placeholder="Search"
+    />
+    <div id="map" class="map"></div>
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD0UoxRvZCkYoWhjeRc2HpUoLoN6zeLNQI&callback=initAutocomplete&libraries=places&v=weekly"
+      async
+    ></script>
+  </body>
+
   <script src="assets/job-description.js"></script>
 </html>
