@@ -21,37 +21,55 @@ https: fetch(queryURL, {
     //elements creates and info rendered to page
     var resultArea = document.getElementById("description");
     resultArea.textContent = job.jobTitle;
+    var resultCard = document.createElement("div");
+    resultCard.classList.add("card-body");
     resultArea.setAttribute("style", "color: purple");
+    resultArea.append(resultCard);
+
 
     var locationEl = document.createElement("div");
     locationEl.textContent = "Location: " + job.locationName;
     resultArea.append(locationEl);
+    locationEl.classList.add("div-space-top");
     locationEl.setAttribute("style", "color: purple");
+    
 
     var employerEl = document.createElement("div");
     employerEl.textContent = "Employer: " + job.employerName;
     resultArea.append(employerEl);
     employerEl.setAttribute("style", "color: purple");
 
+    var cardBreak = document.createElement("br");
+    resultCard.append(cardBreak);
+    
     var salaryEl = document.createElement("div");
     salaryEl.textContent =
       "Salary: £" + job.minimumSalary + "-" + job.maximumSalary;
     resultArea.append(salaryEl);
     salaryEl.setAttribute("style", "color: purple");
 
+
     var jobDescription = document.createElement("div");
-    jobDescription.textContent = job.jobDescription;
+    jobDescription.textContent = job.jobDescription.replace(/(<([^>]+)>)/gi, "");
     jobDescription.setAttribute("style", "color: black");
+    jobDescription.append(cardBreak);
+    jobDescription.classList.add("div-space-top");
     resultArea.append(jobDescription);
+
+  
+
 
     var closingEl = document.createElement("div");
     closingEl.textContent = "Closing date: " + job.expirationDate;
     closingEl.setAttribute("style", "color: red");
+    closingEl.classList.add("div-space");
     resultArea.append(closingEl);
 
     var applyLink = document.createElement("a");
     applyLink.setAttribute("href", job.jobUrl);
-    applyLink.setAttribute("style", "color: purple");
+    applyLink.setAttribute("style", "color: white");
+    applyLink.classList.add("apply")
+    applyLink.classList.add("div-space");
     applyLink.textContent = "Apply Here";
 
     resultArea.append(applyLink);
