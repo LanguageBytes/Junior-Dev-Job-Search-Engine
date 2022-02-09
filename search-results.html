@@ -119,6 +119,25 @@
 <br>
 <br> 
 
+<h2> Distance from Location</h2> <br>
+
+<p>Miles</p>
+<input type="range" list="tickmarks">
+<datalist id="tickmarks">
+<option value="10"label="10"></option>
+<option value="20"></option>
+<option value="30"></option>
+<option value="40"></option>
+<option value="50"></option>
+<option value="60"></option>
+<option value="70"></option>
+<option value="80"></option>
+<option value="90"></option>
+<option value="100" label="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 100"></option>
+</datalist>
+
+
+<br> <br>
 <h2> Salary </h2> <br>
 
 <!-- Minimum -->
@@ -136,7 +155,7 @@
 
     
 <!-- Maximum -->
-<select id="maximum-salary-input">
+<select id="maximum-salary-input" class="custom-select">
   <option value="" disabled selected>Maximum Salary</option>
   <option value="16000"> £16,000 </option>
   <option value="20000"> £22,000 </option>
@@ -150,7 +169,7 @@
     <!-- Keywords -->
 <h2>Keywords</h2>
 <br>
-<select id="language-input">
+<select id="language-input" class="custom-select">
   <option value="" disabled selected>Select Language</option>
   <option value="Javascript">Javascript</option>
   <option value="CSS">CSS</option>

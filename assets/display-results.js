@@ -188,6 +188,7 @@ newSearch = function (event) {
   var locationInput = document.getElementById("location-input");
   var minimumSalary = document.getElementById("minimum-salary-input").value;
   var maximumSalary = document.getElementById("maximum-salary-input").value;
+  var distanceFromLocation = document.getElementById("tickmarks").value
   var userLocationInput = locationInput.value.trim();
   console.log(userLocationInput);
 
@@ -199,7 +200,7 @@ newSearch = function (event) {
     "&locationName=" +
     userLocationInput +
     "&distanceFromLocation=" +
-    20 +
+    distanceFromLocation +
     "&minimumSalary=" +
     minimumSalary +
     "&maximumSalary=" +
