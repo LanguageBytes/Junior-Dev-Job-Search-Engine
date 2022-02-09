@@ -43,6 +43,7 @@ function toggleNavbar(collapseID) {
 var searchButton = document.getElementById("search-button");
 var results = document.getElementById("results");
 var stored = document.getElementById("history");
+var clearStorage = document.getElementById("clearStorage")
 
 // Empty array for the localStorage
 var cities = [];
@@ -58,25 +59,21 @@ var cities = [];
     userHistory = cities.split(",");
     cities = userHistory;
 
-  //For each city searched, keep it stored on the page under the form column as a button
-  for (var i = 0; i < userHistory.length; i++) {
-    var keepCity = document.createElement("button");
-    keepCity.classList.add("save");
-    keepCity.innerHTML = userHistory[i];
-    stored.append(keepCity);
-    keepCity.addEventListener("click", function (event) {
-      console.log("click!");
-    });
+    //For each city searched, keep it stored on the page under the form column as a button
+    for (var i = 0; i < userHistory.length; i++) {
+      var keepCity = document.createElement("button");
+      keepCity.classList.add("save");
+      keepCity.innerHTML = userHistory[i];
+      stored.append(keepCity);
+    }
   }
 
   function pushCity() {
     var searchedCity = document.location.search.split("=").pop();
     console.log("saved search" + searchedCity);
     var addCityArray = cities;
-    if (!addCityArray.includes(searchedCity)) {
     addCityArray.push(searchedCity);
-    }
-    //Will save it in local storage if not already present in LS
+    //Will save it in local storage
     localStorage.setItem("previousSearchData", addCityArray);
   }
 
@@ -282,11 +279,23 @@ newSearch = function (event) {
         resultCard.append(cardBreak);
 
         var cardBreak = document.createElement("br");
-        resultCard.append(cardBreak);  
+        resultCard.append(cardBreak);
+
         
-        console.log(minimumSalary + maximumSalary + distanceFromLocation + keywords + userLocationInput);
-      }
-    });
-}
+    console.log (minimumSalary + maximumSalary + distanceFromLocation + keywords + userLocationInput )
+    }
   }
+    )
+}
+
+
 searchButton.addEventListener("click", newSearch);
+
+clearLocalStorage = function (event) {
+  event.preventDefault()
+  localStorage.removeItem("previousSearchData");
+  keepCity.classList.remove("save");
+  keepCity.classList.add("unsave");
+  }
+  
+  clearStorage.addEventListener("click", clearLocalStorage)

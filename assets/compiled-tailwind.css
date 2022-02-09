@@ -136,6 +136,9 @@ datalist {
   border-radius:5px;
 }
 
+.unsave {
+  display:none;
+}
 
 /* The container must be positioned relative: */
 .custom-select {
