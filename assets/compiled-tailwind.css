@@ -92,6 +92,18 @@ datalist {
 
 }
 
+.card-body {
+  border-width: 2px;
+  margin-top: 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding-top: 40px;
+}
+
+.margin-top{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-top: 10px;
+}
 .apply {
   background-color: rgb(45, 0, 56);
   padding: 10px;
@@ -106,33 +118,28 @@ datalist {
   border-radius: 5px;
 }
 
-.bookmarkSaved {
-  background-color: rgb(219, 129, 45);
-  padding: 10px;
-  margin-top: 10px;
-  border-radius: 5px;
-}
-
-
-.readMore {
-  background-color: rgb(231, 231, 231);
-  padding: 10px;
-  margin-top: 10px;
-  margin-left: 10px;
-  border-radius: 5px;
-}
-
-
 .card-body {
   padding-left: 40px;
 }
 
+.card-body2 {
+  border-bottom-style: solid black;
+  border-top-style: none;
+  border-left-style: none;
+  border-right-style: none;
+  border-width: 1px;
+  background-color: none;
+  padding: 10px;
+}
+
 .save {
   padding:10px;
-  background-color: rgb(217, 220, 224);
+  margin-left: 200px;
+  background-color: rgb(160, 163, 204);
   margin: 10px;
   display: flex;
-  border-radius: 5px;
+  justify-content: center;
+  border-radius:5px;
 }
 
 

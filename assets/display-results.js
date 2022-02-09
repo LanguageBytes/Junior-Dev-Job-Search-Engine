@@ -189,6 +189,7 @@ newSearch = function (event) {
   var minimumSalary = document.getElementById("minimum-salary-input").value;
   var maximumSalary = document.getElementById("maximum-salary-input").value;
   var distanceFromLocation = document.getElementById("tickmarks").value
+  var temp = document.getElementById("type").value
   var userLocationInput = locationInput.value.trim();
   console.log(userLocationInput);
 
@@ -204,7 +205,8 @@ newSearch = function (event) {
     "&minimumSalary=" +
     minimumSalary +
     "&maximumSalary=" +
-    maximumSalary;
+    maximumSalary
+    + "&temp=" + temp;
 
   // if the user has not entered a search term
   if (!userLocationInput) {
@@ -238,6 +240,7 @@ newSearch = function (event) {
         var jobTypeEl = document.createElement("a");
         jobTypeEl.textContent = jobs.results[i].jobTitle;
         jobTypeEl.setAttribute("style", "color: purple");
+        jobTypeEl.classList.add("margin-top")
         var jobId = jobs.results[i].jobId;
         var descriptionLink = "./description-page.html?q=" + jobId;
         jobTypeEl.setAttribute("href", descriptionLink);
@@ -273,16 +276,14 @@ newSearch = function (event) {
 
         var cardBreak = document.createElement("br");
         resultCard.append(cardBreak);
+
+        
+    console.log (minimumSalary + maximumSalary + distanceFromLocation + keywords + userLocationInput )
     }
   }
     )
 }
 
 
-// Event listener for bookmark button
-// <<<<<<< Carlas-Branch
 searchButton.addEventListener("click", newSearch);
 
-// =======
-searchButton.addEventListener("click", newSearch);
-// >>>>>>> main

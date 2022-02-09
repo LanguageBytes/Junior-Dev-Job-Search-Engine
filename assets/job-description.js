@@ -22,7 +22,7 @@ https: fetch(queryURL, {
     var resultArea = document.getElementById("description");
     resultArea.textContent = job.jobTitle;
     var resultCard = document.createElement("div");
-    resultCard.classList.add("card-body");
+    resultCard.classList.add("card-body2");
     resultArea.setAttribute("style", "color: purple");
     resultArea.append(resultCard);
 
@@ -55,8 +55,6 @@ https: fetch(queryURL, {
     jobDescription.append(cardBreak);
     jobDescription.classList.add("div-space-top");
     resultArea.append(jobDescription);
-
-  
 
 
     var closingEl = document.createElement("div");

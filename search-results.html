@@ -103,6 +103,8 @@
   padding: 10px; width:25%">
     <h2 class="align-center">Search</h2>
     <br>
+    <br>
+    <br>
     <!-- Search Input -->
     <form target="search-results.html" method="">
     <div class="mb-3 pt-0">
@@ -166,6 +168,21 @@
 </select>
 <br> <br>
 
+
+<form id="type">
+  <input type="checkbox" id="temp" name="temp" value="true">
+  <label for="temp"> Temporary </label><br>
+</form>
+
+<br>
+
+<form id="type">
+  <input type="checkbox" id="permanent" name="permanent" value="true">
+  <label for="permanent"> Permanent </label><br>
+</form>
+
+<br>
+
     <!-- Keywords -->
 <h2>Keywords</h2>
 <br>
@@ -203,7 +220,7 @@
 
    <!-- Column 2 = Search Results -->
   <div class="column middle" style="background-color:rgb(253, 253, 253);  float: left;
-  padding: 10px; width:50%">
+  padding: 15px; width:55%">
     <h2 class="align-center">Jobs</h2>
     <br>
     <p id ="results"></p>
@@ -212,10 +229,11 @@
 
   <!-- Column 3 = LocalStorage -->
   <div class="column right" style="background-color:rgb(255, 255, 255); float: left;
-  padding:10px; width: 25%;">
-    <h2>Previously Searched</h2>
+  padding:10px; width: 20%;">
+<h2 class="align-center">Previous Searches</h2>
+  <br>
     <br>
-    <p id ="history"></p>
+    <p id="history"></p>
   </div>
 </div>
          
