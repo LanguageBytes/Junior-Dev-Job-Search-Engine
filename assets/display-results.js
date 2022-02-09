@@ -36,6 +36,8 @@ function toggleNavbar(collapseID) {
   document.getElementById(collapseID).classList.toggle("px-6");
 }
 
+
+
 //HTML Variables
 
 var searchButton = document.getElementById("search-button");
