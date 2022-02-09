@@ -64,6 +64,7 @@ var cities = [];
       stored.append(keepCity);
     }
   }
+
   function pushCity() {
     var searchedCity = document.location.search.split("=").pop();
     console.log("saved search" + searchedCity);
@@ -74,7 +75,6 @@ var cities = [];
   }
 
   pushCity()
-  
 // Redirected from Homepage Search
 
 // Get Search from Previous Page
@@ -213,9 +213,6 @@ newSearch = function (event) {
   fetch(queryURL, {
     headers: {
       Authorization: authHeader,
-      Allow: GET,
-      POST,
-      HEAD,
     },
   })
     .then(function (res) {
@@ -278,8 +275,11 @@ newSearch = function (event) {
     )
 }
 
-//Event listener for search button
-searchButton.addEventListener("click", doSearch);
+
 // Event listener for bookmark button
+// <<<<<<< Carlas-Branch
 searchButton.addEventListener("click", newSearch);
 
+// =======
+searchButton.addEventListener("click", newSearch);
+// >>>>>>> main

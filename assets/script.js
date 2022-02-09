@@ -59,24 +59,6 @@ function initMap() {
   });
 }
 
-// <<<<<<< HEAD
-
-//<<<<<<< HEAD
-//  Carlas-Branch
-//Marker
-  // function addMarker() {
-  //}
- 
-
-
-//=======
-// Console Test
-//>>>>>>> f8ebdde4a1ed577467e832cd7de4b07034d3d62a
-// =======
-// Console Test
-// main
-// =======
-// >>>>>>> 950661844fb70376ec120a0bcbded72a47ee1312
 console.log("hello");
 
 // Get Jobs
