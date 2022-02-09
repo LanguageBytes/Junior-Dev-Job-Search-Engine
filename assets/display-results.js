@@ -277,4 +277,9 @@ newSearch = function (event) {
 
 
 // Event listener for bookmark button
+// <<<<<<< Carlas-Branch
 searchButton.addEventListener("click", newSearch);
+
+// =======
+searchButton.addEventListener("click", newSearch);
+// >>>>>>> main
