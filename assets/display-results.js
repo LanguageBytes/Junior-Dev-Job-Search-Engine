@@ -42,11 +42,44 @@ var searchButton = document.getElementById("search-button");
 var results = document.getElementById("results");
 var stored = document.getElementById("history");
 
+// Empty array for the localStorage
+var cities = [];
+
+// Get Local Storage from Previous Searches
+
+  //Get any local Storage from previous searches
+  if (localStorage.getItem("previousSearchData")) {
+    cities = localStorage.getItem("previousSearchData");
+
+    //Will add the user's history to the empty cities array above
+    var userHistory = [];
+    userHistory = cities.split(",");
+    cities = userHistory;
+
+    //For each city searched, keep it stored on the page under the form column as a button
+    for (var i = 0; i < userHistory.length; i++) {
+      var keepCity = document.createElement("button");
+      keepCity.classList.add("save");
+      keepCity.innerHTML = userHistory[i];
+      stored.append(keepCity);
+    }
+  }
+  function pushCity() {
+    var searchedCity = document.location.search.split("=").pop();
+    console.log("saved search" + searchedCity);
+    var addCityArray = cities;
+    addCityArray.push(searchedCity);
+    //Will save it in local storage
+    localStorage.setItem("previousSearchData", addCityArray);
+  }
+
+  pushCity()
+  
 // Redirected from Homepage Search
 
-// Get Search Input from the Previous Page
+// Get Search from Previous Page
 function getJobs() {
-  //Takes the homepage search results from the querystring
+  // Takes the homepage search results from the querystring
   var location = document.location.search.split("=").pop();
 
   // Reed Variables
@@ -55,7 +88,6 @@ function getJobs() {
   var authHeader = `Basic ${encodedKey}`;
   var keywords = "junior%20developer";
   var corsAnywhereLink = "https://radiant-stream-08604.herokuapp.com/";
-
   var queryURL =
     corsAnywhereLink +
     "https://www.reed.co.uk/api/1.0/search?keywords=" +
@@ -82,7 +114,6 @@ function getJobs() {
       // Creates cards in the HTML for each job
       for (var i = 0; i < jobs.results.length; i++) {
         var resultArea = document.getElementById("results");
-
         var resultCard = document.createElement("div");
         resultCard.setAttribute("id", "discardLater");
         resultCard.classList.add("card-body");
@@ -90,9 +121,9 @@ function getJobs() {
 
         var jobTypeEl = document.createElement("a");
         jobTypeEl.textContent = jobs.results[i].jobTitle;
+        jobTypeEl.setAttribute("style", "color: purple");
         var jobId = jobs.results[i].jobId;
         var descriptionLink = "./description-page.html?q=" + jobId;
-        document.location.assign(descriptionLink);
         jobTypeEl.setAttribute("href", descriptionLink);
         resultCard.append(jobTypeEl);
 
@@ -116,11 +147,6 @@ function getJobs() {
         closingEl.textContent =
           "Closing date: " + jobs.results[i].expirationDate;
         resultCard.append(closingEl);
-
-        var readMoreEl = document.createElement("button");
-        readMoreEl.textContent = "Read Description";
-        readMoreEl.classList.add("readMore");
-        resultCard.append(readMoreEl);
 
         var cardBreak = document.createElement("br");
         resultCard.append(cardBreak);
@@ -187,6 +213,9 @@ newSearch = function (event) {
   fetch(queryURL, {
     headers: {
       Authorization: authHeader,
+      Allow: GET,
+      POST,
+      HEAD,
     },
   })
     .then(function (res) {
@@ -197,7 +226,7 @@ newSearch = function (event) {
       console.log(jobs);
       console.log(jobs.results[0].employerName);
 
-      //Creates cards in the HTML for each job
+      //Creates the cards for each job
       for (var i = 0; i < jobs.results.length; i++) {
         var resultArea = document.getElementById("results");
         var resultCard = document.createElement("div");
@@ -205,13 +234,18 @@ newSearch = function (event) {
         resultCard.classList.add("card-body");
         resultArea.append(resultCard);
 
+        //link created to take to next page for job description
         var jobTypeEl = document.createElement("a");
         jobTypeEl.textContent = jobs.results[i].jobTitle;
+        jobTypeEl.setAttribute("style", "color: purple");
         var jobId = jobs.results[i].jobId;
         var descriptionLink = "./description-page.html?q=" + jobId;
-        document.location.assign(descriptionLink);
         jobTypeEl.setAttribute("href", descriptionLink);
         resultCard.append(jobTypeEl);
+        //link assigned only if clicked
+        jobTypeEl.addEventListener("click", function () {
+          document.location.assign(descriptionLink);
+        });
 
         var locationEl = document.createElement("div");
         locationEl.textContent = "Location: " + jobs.results[i].locationName;
@@ -234,27 +268,17 @@ newSearch = function (event) {
           "Closing date: " + jobs.results[i].expirationDate;
         resultCard.append(closingEl);
 
-        var readMoreEl = document.createElement("button");
-        readMoreEl.textContent = "Read Description";
-        readMoreEl.classList.add("readMore");
-        resultCard.append(readMoreEl);
-
         var cardBreak = document.createElement("br");
         resultCard.append(cardBreak);
 
         var cardBreak = document.createElement("br");
         resultCard.append(cardBreak);
-      }
-    });
-};
+    }
+  }
+    )
+}
 
 //Event listener for search button
 searchButton.addEventListener("click", doSearch);
-// Event listener for bookmark button 
-bookmarkEl.addEventListener("click", addBookmark)
-
-
-//Add event listener to save button
-//Set item to local storage when save clicked
-//Get item from local storage
-//Display items from local storage
+// Event listener for bookmark button
+searchButton.addEventListener("click", newSearch);
