@@ -62,7 +62,7 @@ if (localStorage.getItem("previousSearchData")) {
     keepCity.classList.add("save");
     keepCity.innerHTML = userHistory[i];
     stored.append(keepCity);
-    keepCity.addEventListener("click", function () {
+    keepCity.addEventListener("click", function (event) {
       console.log("click!");
     });
   }
@@ -235,6 +235,9 @@ newSearch = function (event) {
       keepCity.classList.add("save");
       keepCity.innerHTML = userHistory[i];
       stored.append(keepCity);
+      keepCity.addEventListener("click", function (event) {
+        console.log("click!");
+      });
     }
   }
 
