@@ -210,21 +210,27 @@ if (localStorage.getItem("previousSearchData")) {
       "&temp=" +
       temp;
 
+
+          // Fetch Request
+    fetch(queryURL, {
+      headers: {
+        Authorization: authHeader,
+      },
+    })
+      .then(function (res) {
+        console.log(res);
+        return res.json();
+      })
+      .then(function (jobs) {
+        console.log(jobs);
+        console.log(jobs.results[0].employerName);
+
     // if the user has not entered a search term
     if (!userLocationInput) {
       console.error("You need a search input value, you silly banana!");
       return;
     }
 
-    // Fetch Request
-    fetch(queryURL, {
-      headers: {
-        Authorization: authHeader,
-      },
-    })
-    .then(function (jobs) {
-      console.log(jobs);
-      console.log(jobs.results[0].employerName);
 
       //Creates the cards for each job
       for (var i = 0; i < jobs.results.length; i++) {
