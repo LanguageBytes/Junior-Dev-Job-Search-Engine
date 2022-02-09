@@ -288,5 +288,5 @@ newSearch = function (event) {
       }
     });
 }
-
+  }
 searchButton.addEventListener("click", newSearch);
