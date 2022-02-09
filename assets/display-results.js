@@ -282,3 +282,4 @@ newSearch = function (event) {
 searchButton.addEventListener("click", doSearch);
 // Event listener for bookmark button
 searchButton.addEventListener("click", newSearch);
+
