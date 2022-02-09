@@ -279,14 +279,11 @@ newSearch = function (event) {
         resultCard.append(cardBreak);
 
         var cardBreak = document.createElement("br");
-        resultCard.append(cardBreak);
-
+        resultCard.append(cardBreak);  
         
-    console.log (minimumSalary + maximumSalary + distanceFromLocation + keywords + userLocationInput )
-    }
-  }
-    )
+        console.log(minimumSalary + maximumSalary + distanceFromLocation + keywords + userLocationInput);
+      }
+    });
 }
-
 
 searchButton.addEventListener("click", newSearch);
