@@ -78,6 +78,8 @@ if (localStorage.getItem("previousSearchData")) {
   }
 
   pushCity();
+
+
   // Redirected from Homepage Search
 
   // Get Search from Previous Page
@@ -281,9 +283,6 @@ if (localStorage.getItem("previousSearchData")) {
 
         var cardBreak = document.createElement("br");
         resultCard.append(cardBreak);
-
-        
-    console.log (minimumSalary + maximumSalary + distanceFromLocation + keywords + userLocationInput )
     }
   }
     )
