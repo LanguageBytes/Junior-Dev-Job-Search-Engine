@@ -36,6 +36,8 @@ function toggleNavbar(collapseID) {
   document.getElementById(collapseID).classList.toggle("px-6");
 }
 
+
+
 //HTML Variables
 
 var searchButton = document.getElementById("search-button");
@@ -47,15 +49,16 @@ var cities = [];
 
 // Get Local Storage from Previous Searches
 
-//Get any local Storage from previous searches
-if (localStorage.getItem("previousSearchData")) {
-  cities = localStorage.getItem("previousSearchData");
+  //Get any local Storage from previous searches
+  if (localStorage.getItem("previousSearchData")) {
+    cities = localStorage.getItem("previousSearchData");
 
-  //Will add the user's history to the empty cities array above
-  var userHistory = [];
-  userHistory = cities.split(",");
-  cities = userHistory;
+    //Will add the user's history to the empty cities array above
+    var userHistory = [];
+    userHistory = cities.split(",");
+    cities = userHistory;
 
+<<<<<<< HEAD
   //For each city searched, keep it stored on the page under the form column as a button
   for (var i = 0; i < userHistory.length; i++) {
     var keepCity = document.createElement("button");
@@ -65,21 +68,27 @@ if (localStorage.getItem("previousSearchData")) {
     keepCity.addEventListener("click", function (event) {
       console.log("click!");
     });
+=======
+    //For each city searched, keep it stored on the page under the form column as a button
+    for (var i = 0; i < userHistory.length; i++) {
+      var keepCity = document.createElement("button");
+      keepCity.classList.add("save");
+      keepCity.innerHTML = userHistory[i];
+      stored.append(keepCity);
+    }
+>>>>>>> ef3e2b50c32eb974e7cba6c8e066063e9ef7ec2f
   }
-}
-function pushCity() {
-  var searchedCity = document.location.search.split("=").pop();
-  console.log("saved search" + searchedCity);
-  var addCityArray = cities;
-  if (!addCityArray.includes(searchedCity)) {
+
+  function pushCity() {
+    var searchedCity = document.location.search.split("=").pop();
+    console.log("saved search" + searchedCity);
+    var addCityArray = cities;
     addCityArray.push(searchedCity);
+    //Will save it in local storage
+    localStorage.setItem("previousSearchData", addCityArray);
   }
-  //Will save it in local storage
-  localStorage.setItem("previousSearchData", addCityArray);
-}
 
-pushCity();
-
+  pushCity()
 // Redirected from Homepage Search
 
 // Get Search from Previous Page
@@ -191,6 +200,8 @@ newSearch = function (event) {
   var locationInput = document.getElementById("location-input");
   var minimumSalary = document.getElementById("minimum-salary-input").value;
   var maximumSalary = document.getElementById("maximum-salary-input").value;
+  var distanceFromLocation = document.getElementById("tickmarks").value
+  var temp = document.getElementById("type").value
   var userLocationInput = locationInput.value.trim();
   console.log(userLocationInput);
 
@@ -202,11 +213,12 @@ newSearch = function (event) {
     "&locationName=" +
     userLocationInput +
     "&distanceFromLocation=" +
-    20 +
+    distanceFromLocation +
     "&minimumSalary=" +
     minimumSalary +
     "&maximumSalary=" +
-    maximumSalary;
+    maximumSalary
+    + "&temp=" + temp;
 
   // if the user has not entered a search term
   if (!userLocationInput) {
@@ -214,6 +226,7 @@ newSearch = function (event) {
     return;
   }
 
+<<<<<<< HEAD
   // LOCAL STORAGE
   var cities = [];
 
@@ -253,13 +266,12 @@ newSearch = function (event) {
   }
   //
 
+=======
+>>>>>>> ef3e2b50c32eb974e7cba6c8e066063e9ef7ec2f
   // Fetch Request
   fetch(queryURL, {
     headers: {
       Authorization: authHeader,
-      Allow: GET,
-      POST,
-      HEAD,
     },
   })
     .then(function (res) {
@@ -282,6 +294,7 @@ newSearch = function (event) {
         var jobTypeEl = document.createElement("a");
         jobTypeEl.textContent = jobs.results[i].jobTitle;
         jobTypeEl.setAttribute("style", "color: purple");
+        jobTypeEl.classList.add("margin-top")
         var jobId = jobs.results[i].jobId;
         var descriptionLink = "./description-page.html?q=" + jobId;
         jobTypeEl.setAttribute("href", descriptionLink);
@@ -317,11 +330,14 @@ newSearch = function (event) {
 
         var cardBreak = document.createElement("br");
         resultCard.append(cardBreak);
-      }
-    });
-};
 
-//Event listener for search button
-searchButton.addEventListener("click", doSearch);
-// Event listener for bookmark button
+        
+    console.log (minimumSalary + maximumSalary + distanceFromLocation + keywords + userLocationInput )
+    }
+  }
+    )
+}
+
+
 searchButton.addEventListener("click", newSearch);
+
