@@ -211,7 +211,7 @@ if (localStorage.getItem("previousSearchData")) {
       temp;
 
 
-          // Fetch Request
+    // Fetch Request
     fetch(queryURL, {
       headers: {
         Authorization: authHeader,
@@ -223,7 +223,7 @@ if (localStorage.getItem("previousSearchData")) {
       })
       .then(function (jobs) {
         console.log(jobs);
-        console.log(jobs.results[0].employerName);
+        console.log (jobs.results[0].employerName);
 
     // if the user has not entered a search term
     if (!userLocationInput) {
