@@ -58,7 +58,7 @@ https: fetch(queryURL, {
 
 
     var closingEl = document.createElement("div");
-    closingEl.textContent = "Closing date: " + job.expirationDate;
+    closingEl.textContent = "Closing date:" + job.expirationDate;
     closingEl.setAttribute("style", "color: red");
     closingEl.classList.add("div-space");
     resultArea.append(closingEl);

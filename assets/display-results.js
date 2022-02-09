@@ -139,6 +139,7 @@ if (localStorage.getItem("previousSearchData")) {
           employerEl.textContent = "Employer: " + jobs.results[i].employerName;
           resultCard.append(employerEl);
 
+<<<<<<< HEAD
           var salaryEl = document.createElement("div");
           salaryEl.textContent =
             "Salary: £" +
@@ -146,6 +147,15 @@ if (localStorage.getItem("previousSearchData")) {
             "-" +
             jobs.results[i].maximumSalary;
           resultCard.append(salaryEl);
+=======
+        var salaryEl = document.createElement("div");
+        salaryEl.textContent =
+          "Salary:  £" +
+          jobs.results[i].minimumSalary +
+          "-" +
+          jobs.results[i].maximumSalary;
+        resultCard.append(salaryEl);
+>>>>>>> 54970f4f9a9254abfee8a364085d9b7d46522b9b
 
           var closingEl = document.createElement("div");
           closingEl.textContent =
