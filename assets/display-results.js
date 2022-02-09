@@ -58,21 +58,25 @@ var cities = [];
     userHistory = cities.split(",");
     cities = userHistory;
 
-    //For each city searched, keep it stored on the page under the form column as a button
-    for (var i = 0; i < userHistory.length; i++) {
-      var keepCity = document.createElement("button");
-      keepCity.classList.add("save");
-      keepCity.innerHTML = userHistory[i];
-      stored.append(keepCity);
-    }
+  //For each city searched, keep it stored on the page under the form column as a button
+  for (var i = 0; i < userHistory.length; i++) {
+    var keepCity = document.createElement("button");
+    keepCity.classList.add("save");
+    keepCity.innerHTML = userHistory[i];
+    stored.append(keepCity);
+    keepCity.addEventListener("click", function (event) {
+      console.log("click!");
+    });
   }
 
   function pushCity() {
     var searchedCity = document.location.search.split("=").pop();
     console.log("saved search" + searchedCity);
     var addCityArray = cities;
+    if (!addCityArray.includes(searchedCity)) {
     addCityArray.push(searchedCity);
-    //Will save it in local storage
+    }
+    //Will save it in local storage if not already present in LS
     localStorage.setItem("previousSearchData", addCityArray);
   }
 
@@ -278,15 +282,11 @@ newSearch = function (event) {
         resultCard.append(cardBreak);
 
         var cardBreak = document.createElement("br");
-        resultCard.append(cardBreak);
-
+        resultCard.append(cardBreak);  
         
-    console.log (minimumSalary + maximumSalary + distanceFromLocation + keywords + userLocationInput )
-    }
-  }
-    )
+        console.log(minimumSalary + maximumSalary + distanceFromLocation + keywords + userLocationInput);
+      }
+    });
 }
 
-
 searchButton.addEventListener("click", newSearch);
-
