@@ -69,6 +69,7 @@ if (localStorage.getItem("previousSearchData")) {
   function pushCity() {
     var searchedCity = document.location.search.split("=").pop();
     console.log("saved search" + searchedCity);
+    document.getElementById("clearStorage").style.display ="block"
     var addCityArray = cities;
     if (!addCityArray.includes(searchedCity)) {
       addCityArray.push(searchedCity);
@@ -158,6 +159,8 @@ if (localStorage.getItem("previousSearchData")) {
 
           var cardBreak = document.createElement("br");
           resultCard.append(cardBreak);
+
+          pushCity()
         }
       });
   }
@@ -287,6 +290,7 @@ if (localStorage.getItem("previousSearchData")) {
   }
     )
 }
+
 
 
 searchButton.addEventListener("click", newSearch);

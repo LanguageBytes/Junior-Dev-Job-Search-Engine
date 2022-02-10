@@ -111,6 +111,11 @@ datalist {
   border-radius: 5px;
 }
 
+#clearStorage {
+  color:rgb(167, 14, 14);
+  display:none;
+  margin-left: 200px;
+}
 
 .card-body {
   padding-left: 40px;
@@ -129,10 +134,8 @@ datalist {
 
 .save {
   padding:10px;
-  margin-left: 200px;
+  margin-left: 80px;
   background-color: rgb(199, 201, 223);
-  margin: 10px;
-  justify-content: center;
   border-radius:5px;
 }
 
@@ -474,6 +477,9 @@ ul {
  *
  *    https://github.com/tailwindcss/tailwindcss/pull/116
  */
+
+
+
 
 *,
 ::before,
