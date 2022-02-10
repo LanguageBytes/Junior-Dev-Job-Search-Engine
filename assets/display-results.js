@@ -66,6 +66,7 @@ if (localStorage.getItem("previousSearchData")) {
     }
   }
 
+  // Will push the city to the empty array
   function pushCity() {
     var searchedCity = document.location.search.split("=").pop();
     console.log("saved search" + searchedCity);
@@ -74,14 +75,14 @@ if (localStorage.getItem("previousSearchData")) {
     if (!addCityArray.includes(searchedCity)) {
       addCityArray.push(searchedCity);
     }
-    //Will save it in local storage if not already present in LS
+    //Will save it in local storage if not already present
     localStorage.setItem("previousSearchData", addCityArray);
   }
 
   pushCity();
 
 
-  // Redirected from Homepage Search
+  // From Homepage Search
 
   // Get Search from Previous Page
   function getJobs() {
@@ -117,7 +118,7 @@ if (localStorage.getItem("previousSearchData")) {
         console.log(jobs);
         console.log(jobs.results[0].employerName);
 
-        // Creates cards in the HTML for each job
+        // Creates cards in the HTML for each job and displays the results
         for (var i = 0; i < jobs.results.length; i++) {
           var resultArea = document.getElementById("results");
           var resultCard = document.createElement("div");
@@ -125,6 +126,7 @@ if (localStorage.getItem("previousSearchData")) {
           resultCard.classList.add("card-body");
           resultArea.append(resultCard);
 
+          // Job Name
           var jobTypeEl = document.createElement("a");
           jobTypeEl.textContent = jobs.results[i].jobTitle;
           jobTypeEl.setAttribute("style", "color: purple");
@@ -132,28 +134,33 @@ if (localStorage.getItem("previousSearchData")) {
           var descriptionLink = "./description-page.html?q=" + jobId;
           jobTypeEl.setAttribute("href", descriptionLink);
           resultCard.append(jobTypeEl);
-
+          
+          // Location
           var locationEl = document.createElement("div");
           locationEl.textContent = "Location: " + jobs.results[i].locationName;
           resultCard.append(locationEl);
 
+          // Employer
           var employerEl = document.createElement("div");
           employerEl.textContent = "Employer: " + jobs.results[i].employerName;
           resultCard.append(employerEl);
 
-        var salaryEl = document.createElement("div");
-        salaryEl.textContent =
+          // Salary
+          var salaryEl = document.createElement("div");
+          salaryEl.textContent =
           "Salary:  £" +
           jobs.results[i].minimumSalary +
           "-" +
           jobs.results[i].maximumSalary;
-        resultCard.append(salaryEl);
-
+          resultCard.append(salaryEl);
+          
+          // Closing Date
           var closingEl = document.createElement("div");
           closingEl.textContent =
             "Closing date: " + jobs.results[i].expirationDate;
           resultCard.append(closingEl);
-
+           
+          // Page breaks
           var cardBreak = document.createElement("br");
           resultCard.append(cardBreak);
 
@@ -180,7 +187,7 @@ if (localStorage.getItem("previousSearchData")) {
     var previous = document.querySelector("#results");
     removeAllChildNodes(previous);
 
-    //This process is the same as getJobs but with filters added to it and local storage added
+    //This process is the same as getJobs but with filters added to it
 
     // Reed Variables
     var apiKey = "c8be0d68-4d2d-4751-943b-da6b6d189413";
@@ -196,12 +203,12 @@ if (localStorage.getItem("previousSearchData")) {
     var maximumSalary = document.getElementById("maximum-salary-input").value;
     var distanceFromLocation = document.getElementById("tickmarks").value;
 
-  // These variables will change depending on whether the box is checked
+   //The value of these variables will change depending on whether the box is checked
     var temp = document.getElementById("temp").checked;
     var permanent = document.getElementById("permanent").checked;
     var contract = document.getElementById("contract").checked
 
-    // Is the box checked?
+    //Is the box checked?
     if (temp === true) {
       temp = document.getElementById("temp").value = "true";
     }
@@ -222,18 +229,21 @@ if (localStorage.getItem("previousSearchData")) {
         contract = document.getElementById("contract").value = "false";
       }
   
-      // The 
+      //The new value of the variables based on the process above
+
       temp = document.getElementById("temp").value;
       permanent = document.getElementById("permanent").value;
       contract = document.getElementById("contract").value;
 
     
-
+    // Will take the user's location this time from the search input
     var userLocationInput = locationInput.value.trim();
-    console.log(userLocationInput);
-    console.log("temporary? = " + temp + "permanent? = " + permanent + "contract? = " + contract)
 
-    // URL
+  // Checking user's input
+    console.log(userLocationInput);
+    console.log("temporary? = " + temp + " permanent? = " + permanent + " contract? = " + contract)
+
+    // Query URL with filters added
     var queryURL =
       corsAnywhereLink +
       "https://www.reed.co.uk/api/1.0/search?keywords=" +
@@ -264,7 +274,7 @@ if (localStorage.getItem("previousSearchData")) {
       .then(function (jobs) {
         console.log(jobs);
        
-        // if no results found display text in HTML
+        // if no results found, display text in HTML
         if (jobs.totalResults === 0){
           console.log ("no results found")
           var resultArea = document.getElementById("results");
@@ -293,7 +303,7 @@ if (localStorage.getItem("previousSearchData")) {
 
     // IF SEARCH IS SUCCESSFUL
 
-      //Creates the cards for each job
+      //Creates the cards for each job and displays in HTML
       for (var i = 0; i < jobs.results.length; i++) {
         resultArea = document.getElementById("results");
         resultCard = document.createElement("div");
@@ -310,19 +320,21 @@ if (localStorage.getItem("previousSearchData")) {
         var descriptionLink = "./description-page.html?q=" + jobId;
         jobTypeEl.setAttribute("href", descriptionLink);
         resultCard.append(jobTypeEl);
-        //link assigned only if clicked
         jobTypeEl.addEventListener("click", function () {
           document.location.assign(descriptionLink);
         });
 
+        // Location
         var locationEl = document.createElement("div");
         locationEl.textContent = "Location: " + jobs.results[i].locationName;
         resultCard.append(locationEl);
 
+        //Employer
         var employerEl = document.createElement("div");
         employerEl.textContent = "Employer: " + jobs.results[i].employerName;
         resultCard.append(employerEl);
 
+        // Salary
         var salaryEl = document.createElement("div");
         salaryEl.textContent = 
         "Salary: " +
@@ -331,12 +343,13 @@ if (localStorage.getItem("previousSearchData")) {
           jobs.results[i].maximumSalary;
         resultCard.append(salaryEl);
         
-
+      //  Closing date
         var closingEl = document.createElement("div");
         closingEl.textContent =
           "Closing date: " + jobs.results[i].expirationDate;
         resultCard.append(closingEl);
 
+        // Page breaks
         var cardBreak = document.createElement("br");
         resultCard.append(cardBreak);
 
@@ -348,9 +361,10 @@ if (localStorage.getItem("previousSearchData")) {
 }
 
 
-
+// Event Listener for when Search button is clicked
 searchButton.addEventListener("click", newSearch);
 
+// If delete button is clicked, locaL Storage will be cleared
 clearLocalStorage = function (event) {
   event.preventDefault()
   localStorage.removeItem("previousSearchData");
@@ -358,11 +372,12 @@ clearLocalStorage = function (event) {
   keepCity.classList.add("unsave");
   }
   
+  //Event listener for delete button
   clearStorage.addEventListener("click", clearLocalStorage)
 
 
 
-    // Search on Page with Filters
+  // Bring back the previous search function - when the user clicks on the button of city saved in history, that search will be repeated
     bringBackSearch = function (event) {
       event.preventDefault();
   
@@ -485,7 +500,7 @@ clearLocalStorage = function (event) {
       )
   }
 
-  
+  //Event listener for bringing back search
   keepCity.addEventListener("click", bringBackSearch)
 
 
