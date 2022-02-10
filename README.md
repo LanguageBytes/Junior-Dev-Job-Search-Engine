@@ -31,6 +31,8 @@ Technologies used included:
 - Google Maps APIs (location map, search map)
 - Reed APIs (job search and job details)
 
+![screenshot of results page](assets/images/resultscreenshot.png)
+
 Locations of top tech hirers are displayed on a map on the home page, and a map is present on the job description page for the user to manually search for locations if required.
 
 The link for the deployed application is as follows: https://languagebytes.github.io/Junior-Dev-Job-Search-Engine/
