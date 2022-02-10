@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Title -->
+    <title>Junior Developer Job Search Engine</title>
+    <!-- Description -->
+    <meta name="description" content="Find your first Junior Developer job today in one search.">
+    <!-- Keywords -->
+    <meta name="keywords" content="Junior Developer, Jobs, Search">
+    <!-- Authors -->
+    <meta name="authors" content="Carla Brown, Emily Mckibben, Sarah Lloyd">
+    
+    <!-- Stylesheets -->
+      <!-- Creative Tim Tailwind Starter Kit -->
+    <link rel="stylesheet" href="assets/style.css" />
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="assets/compiled-tailwind.css">
+
+
+  </head>
+
+
+<script>
+let map;
+
+function initMap() {
+  const localContextMapView = new google.maps.localContext.LocalContextMapView({
+    element: document.getElementById("map"),
+    placeTypePreferences: [
+      { type: "electronics_store" },
+    ],
+    maxPlaceCount: 20,
+  });
+
+  map = localContextMapView.map;
+  map.setOptions({
+    center: { lat: 51.507307, lng: -0.08114 },
+    zoom: 10,
+  
+
+  });
+  
+var controlDiv = document.createElement('div');
+
+// Set CSS for the control border
+var controlUI = document.createElement('div');
+controlUI.style.backgroundColor = '#fff';
+controlUI.style.border = '2px solid #fff';
+controlUI.style.cursor = 'pointer';
+controlUI.style.marginBottom = '22px';
+controlUI.style.textAlign = 'center';
+controlUI.title = 'Click to recenter the map';
+controlDiv.appendChild(controlUI);
+
+// Set CSS for the control interior
+var controlText = document.createElement('div');
+controlText.style.color = 'rgb(25,25,25)';
+controlText.style.fontFamily = 'Roboto,Arial,sans-serif';
+controlText.style.fontSize = '16px';
+controlText.style.lineHeight = '38px';
+controlText.style.paddingLeft = '5px';
+controlText.style.paddingRight = '5px';
+controlText.innerHTML = 'Center Map';
+controlUI.appendChild(controlText);
+}
+
+</script>
+
+  <body>
+
+
+</div>
+
+
+<div id="map"></div>
+
+<!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD0UoxRvZCkYoWhjeRc2HpUoLoN6zeLNQI&callback=initMap&libraries=localContext&v=beta&channel=2"
+  async
+></script>
+
+
+
+
+
+  <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+
+</div>
+
+  </body>
+</html>
