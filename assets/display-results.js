@@ -195,9 +195,43 @@ if (localStorage.getItem("previousSearchData")) {
     var minimumSalary = document.getElementById("minimum-salary-input").value;
     var maximumSalary = document.getElementById("maximum-salary-input").value;
     var distanceFromLocation = document.getElementById("tickmarks").value;
-    var temp = document.getElementById("type").value;
+
+  // These variables will change depending on whether the box is checked
+    var temp = document.getElementById("temp").checked;
+    var permanent = document.getElementById("permanent").checked;
+    var contract = document.getElementById("contract").checked
+
+    // Is the box checked?
+    if (temp === true) {
+      temp = document.getElementById("temp").value = "true";
+    }
+    else {
+      temp = document.getElementById("temp").value = "false";
+    }
+    if (permanent === true) {
+      permanent = document.getElementById("permanent").value ="true";
+    }
+    else {
+      permanent = document.getElementById("permanent").value = "false";
+    }
+
+    if (contract === true) {
+      contract = document.getElementById("contract").value = "true";
+    }
+      else {
+        contract = document.getElementById("contract").value = "false";
+      }
+  
+      // The 
+      temp = document.getElementById("temp").value;
+      permanent = document.getElementById("permanent").value;
+      contract = document.getElementById("contract").value;
+
+    
+
     var userLocationInput = locationInput.value.trim();
     console.log(userLocationInput);
+    console.log("temporary? = " + temp + "permanent? = " + permanent + "contract? = " + contract)
 
     // URL
     var queryURL =
@@ -213,7 +247,8 @@ if (localStorage.getItem("previousSearchData")) {
       "&maximumSalary=" +
       maximumSalary +
       "&temp=" +
-      temp;
+      temp + "&contract=" +
+      contract + "&permanent=" + permanent;
 
 
     // Fetch Request
@@ -228,19 +263,40 @@ if (localStorage.getItem("previousSearchData")) {
       })
       .then(function (jobs) {
         console.log(jobs);
-        console.log (jobs.results[0].employerName);
+       
+        // if no results found display text in HTML
+        if (jobs.totalResults === 0){
+          console.log ("no results found")
+          var resultArea = document.getElementById("results");
+          var resultCard = document.createElement("div");
+          resultCard.setAttribute("class", "align-center");
+          resultCard.textContent = "Unfortunately, no results were found for your search";
+          resultArea.append(resultCard);
+        }
 
-    // if the user has not entered a search term
+        // If results found, continue the process
+        else {
+        console.log (jobs.results[0].employerName);
+        }
+
+    // if the user has not entered a search term, text will display in HTML prompting the user to try again
     if (!userLocationInput) {
       console.error("You need a search input value, you silly banana!");
+      var resultArea = document.getElementById("results");
+          var resultCard = document.createElement("div");
+          resultCard.setAttribute("class", "align-center");
+          resultCard.textContent = "Enter a location to continue. If you wish to search nationally, enter 'UK' in the search field";
+          resultArea.append(resultCard);
       return;
     }
 
 
+    // IF SEARCH IS SUCCESSFUL
+
       //Creates the cards for each job
       for (var i = 0; i < jobs.results.length; i++) {
-        var resultArea = document.getElementById("results");
-        var resultCard = document.createElement("div");
+        resultArea = document.getElementById("results");
+        resultCard = document.createElement("div");
         resultCard.setAttribute("id", "discardLater");
         resultCard.classList.add("card-body");
         resultArea.append(resultCard);
