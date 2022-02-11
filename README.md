@@ -64,10 +64,16 @@ THEN I am presented with a description of the job with a link to apply
 </p>
 
 
+
+ <p align="center">
+  <img src="assets/screenshots/description-page-gif.gif"/>
+</p>
+
+
+
 ##  <p align="center"> Comments on Code and Challenges </p>
 
-The code contains functions which are quite repetitive. In the future we can refactor the code to make it more DRY and delegation of concern. 
-We are currently relying on a server to access the Reed API as a temporary solution. In the future, we would like to be able to find a way around this issue which is more secure and reliable.
+The code contains functions which are quite repetitive. In the future we can refactor the code to make it more DRY and work on separation of concern. We are currently relying on a server to access the Reed API as a temporary solution. In the future, we would like to be able to find a way around this issue which is more secure and reliable.
 
 ##  <p align="center"> Future Developments </p>
 
