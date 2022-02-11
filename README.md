@@ -37,7 +37,7 @@ WHEN I click on a job in the list
 THEN I am presented with a description of the job with a link to apply
 ```
 
-##  <p align="center"> Technology used </p>
+##  <p align="center"> Technology Used </p>
 
 - JavaScript 
 - HTML 
@@ -54,7 +54,7 @@ THEN I am presented with a description of the job with a link to apply
 - Filtered Search (Location, Maximum Salary, Job type, Distance from location, Keywords) 
 - A more detailed description page of clicked job with link to apply
 - A List of the top 3 tech hirers and where their locations are on Google maps
-- Google maps Search Map on description page so that they can find the exact location
+- Google maps Search Map on description page so that they can find the exact location of the company
 - Previous searches stored in Local Storage
 - Community Page with information
 
