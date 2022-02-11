@@ -1,24 +1,3 @@
-// RESULTS FOR LIST PAGE
-
-// Job Title - jobs.results[i].jobTitle
-// Salary: jobs.results[i].minimumSalary, jobs.results[i].maximumSalary
-// Location: jobs.results[i].locationName
-// Employer: jobs.results[i].employerName
-// Application date: jobs.results[i].expirationDate
-
-// INFO FOR JOB PAGE
-
-// Job Title - jobs.results[i].jobTitle
-// Salary: jobs.results[i].minimumSalary results[i].maximumSalary
-// Location: jobs.results[i].locationName
-// Employer: jobs.results[i].employerName
-// Application date: jobs.results[i].expirationDate
-// Date posted: jobs.results[i].date
-// Job description: jobs.results[i].jobDescription
-// Apply here/job link: jobs.results[i].jobUrl
-
-//var location = document.location.search.split("=").pop();
-
 //  HTML Script
 
 // Collapses Nav Bar on a smaller screen
@@ -36,19 +15,19 @@ function toggleNavbar(collapseID) {
   document.getElementById(collapseID).classList.toggle("px-6");
 }
 
-//HTML Variables
+
+//Creating Variables from HTML ids
 
 var searchButton = document.getElementById("search-button");
 var results = document.getElementById("results");
 var stored = document.getElementById("history");
+// Delete button
 var clearStorage = document.getElementById("clearStorage")
 
-// Empty array for the localStorage
+// Empty array for the localStorage to in later
 var cities = [];
 
-// Get Local Storage from Previous Searches
-
-//Get any local Storage from previous searches
+//Get any local Storage from previous searches on load
 if (localStorage.getItem("previousSearchData")) {
   cities = localStorage.getItem("previousSearchData");
 
@@ -57,6 +36,7 @@ if (localStorage.getItem("previousSearchData")) {
   userHistory = cities.split(",");
   cities = userHistory;
 
+  
     //For each city searched, keep it stored on the page under the form column as a button
     for (var i = 0; i < userHistory.length; i++) {
       var keepCity = document.createElement("button");
@@ -72,9 +52,12 @@ if (localStorage.getItem("previousSearchData")) {
     console.log("saved search" + searchedCity);
     document.getElementById("clearStorage").style.display ="block"
     var addCityArray = cities;
+
+    // If the city is not already in the array, push it in
     if (!addCityArray.includes(searchedCity)) {
       addCityArray.push(searchedCity);
     }
+
     //Will save it in local storage if not already present
     localStorage.setItem("previousSearchData", addCityArray);
   }
@@ -89,12 +72,17 @@ if (localStorage.getItem("previousSearchData")) {
     // Takes the homepage search results from the querystring
     var location = document.location.search.split("=").pop();
 
-    // Reed Variables
+    // Reed API Variables (needed information to make fetch request)
     var apiKey = "c8be0d68-4d2d-4751-943b-da6b6d189413";
     var encodedKey = btoa(`${apiKey}:`);
     var authHeader = `Basic ${encodedKey}`;
     var keywords = "junior%20developer";
+
+    // Server, needed to get through CORS (Cross Origin Resource Sharing) because one is local and one is https, will automatically block them
+    // This will attach a header to the request, and cors will then allow you to make the API call (it is not super secure and relying on the server not going down)
     var corsAnywhereLink = "https://radiant-stream-08604.herokuapp.com/";
+
+    // Query URL
     var queryURL =
       corsAnywhereLink +
       "https://www.reed.co.uk/api/1.0/search?keywords=" +
@@ -121,15 +109,19 @@ if (localStorage.getItem("previousSearchData")) {
         // Creates cards in the HTML for each job and displays the results
         for (var i = 0; i < jobs.results.length; i++) {
           var resultArea = document.getElementById("results");
+
+          // Creates a card to display the API response
           var resultCard = document.createElement("div");
           resultCard.setAttribute("id", "discardLater");
           resultCard.classList.add("card-body");
           resultArea.append(resultCard);
 
-          // Job Name
+          // Job Name (anchor tags to description page)
           var jobTypeEl = document.createElement("a");
           jobTypeEl.textContent = jobs.results[i].jobTitle;
           jobTypeEl.setAttribute("style", "color: purple");
+
+          // This is setting up another query string for the second API to be used on the description page
           var jobId = jobs.results[i].jobId;
           var descriptionLink = "./description-page.html?q=" + jobId;
           jobTypeEl.setAttribute("href", descriptionLink);
@@ -184,21 +176,24 @@ if (localStorage.getItem("previousSearchData")) {
         parent.removeChild(parent.firstChild);
       }
     }
+
     var previous = document.querySelector("#results");
     removeAllChildNodes(previous);
 
     //This process is the same as getJobs but with filters added to it
 
-    // Reed Variables
+    // Reed API Variables
     var apiKey = "c8be0d68-4d2d-4751-943b-da6b6d189413";
     var encodedKey = btoa(`${apiKey}:`);
     var authHeader = `Basic ${encodedKey}`;
     var keywords = ["junior%20developer%20", language];
     var corsAnywhereLink = "https://radiant-stream-08604.herokuapp.com/";
 
+    // This time take the user input from the side bar search field
+    var locationInput = document.getElementById("location-input"); 
+
     //FILTERS
     var language = document.getElementById("language-input").value;
-    var locationInput = document.getElementById("location-input");
     var minimumSalary = document.getElementById("minimum-salary-input").value;
     var maximumSalary = document.getElementById("maximum-salary-input").value;
     var distanceFromLocation = document.getElementById("tickmarks").value;

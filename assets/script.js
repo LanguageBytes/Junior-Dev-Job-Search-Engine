@@ -70,19 +70,22 @@ var results = document.getElementById("results");
 
 // Make a Search and Get Jobs
 var makeSearch = function (event) {
-  event.preventDefault();
-  console.log("button clicked");
-  // window.location.href="search-results.html"
 
-  // Get search input from user
+//Prevent default to prevent issues with the page
+  event.preventDefault();
+
+  //Get search input from user
   var userLocationInput = locationInput.value.trim();
   console.log(userLocationInput);
 
+  // If the user does not enter a location
   if (!userLocationInput) {
     console.error("You need a search input value!");
     return;
   }
 
+//Saving entered location so it can be used on the next page (search results page)
+// q= is used to attach the location input to the url
   var queryString = "./search-results.html?q=" + userLocationInput;
   location.assign(queryString);
 };
@@ -90,20 +93,11 @@ var makeSearch = function (event) {
 //Event listener for search button
 searchButton.addEventListener("click", makeSearch);
 
-//  HTML Script
+// HTML Script
 
 // Collapses Nav Bar on a smaller screen
 function toggleNavbar(collapseID) {
   document.getElementById(collapseID).classList.toggle("hidden");
   document.getElementById(collapseID).classList.toggle("block");
-}
-
-//Sidebar - Side navigation menu on mobile/responsive mode
-function toggleNavbar(collapseID) {
-  document.getElementById(collapseID).classList.toggle("hidden");
-  document.getElementById(collapseID).classList.toggle("bg-white");
-  document.getElementById(collapseID).classList.toggle("m-2");
-  document.getElementById(collapseID).classList.toggle("py-3");
-  document.getElementById(collapseID).classList.toggle("px-6");
 }
 
