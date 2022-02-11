@@ -10,6 +10,7 @@ const fti = { lat: 51.5175, lng: -0.0975 };
 const sapKnutsford = { lat: 53.3031, lng: 2.3714 };
 const sapBerkshire = { lat: 51.572803, lng: -0.776339 };
 
+//displays the map
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
     center: wednesburyLatLong,
