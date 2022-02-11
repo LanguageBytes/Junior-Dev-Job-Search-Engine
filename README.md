@@ -13,19 +13,7 @@ Link to deployed application: https://languagebytes.github.io/Junior-Dev-Job-Sea
 As Junior Developers browsing for jobs, we found that we had many tabs open with multiple job search engines. We wanted to create an application  specifically tailored to Junior Developers. The concept is to simplify the process, so that Junior Developers can quickly find the information they need. We also noticed that there was a lack of a community for Junior Developers where they can interact, share issues and ask questions, and a place offering career advice. We had also wanted to create a feature where potential employers could scout Juniors (CV Library). This is something we would like to try to build.
 
 
-##  <p align="center"> Technology used </p>
-
-- JavaScript 
-- HTML 
-- CSS 
-- Tailwind Starter Kit
-- FontAwesome
-- Reed APIs - Search Jobs, Job Details
-- Google Maps API
-- Adzuna API
-
-
-##  <p align="center"> Our Original User Story </p>
+##  <p align="center"> User Story </p>
 
 ```
 AS A junior developer
@@ -48,6 +36,18 @@ THEN it will be saved for me to refer back to in the future
 WHEN I click on a job in the list
 THEN I am presented with a description of the job with a link to apply
 ```
+
+##  <p align="center"> Technology used </p>
+
+- JavaScript 
+- HTML 
+- CSS 
+- Tailwind Starter Kit
+- FontAwesome
+- Reed APIs - Search Jobs, Job Details
+- Google Maps API
+- Adzuna API
+
 
 ##  <p align="center"> Key Features </p>
 
@@ -72,3 +72,6 @@ We are currently relying on a server to access the Reed API as a temporary solut
 ##  <p align="center"> Future Developments </p>
 
 - Refactoring the code
+- Adding a community page
+- Adding a CV library for potential employers to scout Junior Developers
+- Using more APIs to generate more search results
