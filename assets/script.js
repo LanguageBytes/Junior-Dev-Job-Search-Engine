@@ -60,8 +60,6 @@ function initMap() {
   });
 }
 
-console.log("hello");
-
 // Get Jobs
 
 //id variables from HTML
@@ -101,4 +99,5 @@ function toggleNavbar(collapseID) {
   document.getElementById(collapseID).classList.toggle("hidden");
   document.getElementById(collapseID).classList.toggle("block");
 }
+
 
