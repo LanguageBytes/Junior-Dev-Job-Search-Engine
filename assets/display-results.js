@@ -15,19 +15,19 @@ function toggleNavbar(collapseID) {
   document.getElementById(collapseID).classList.toggle("px-6");
 }
 
-//HTML Variables
+
+//Creating Variables from HTML ids
 
 var searchButton = document.getElementById("search-button");
 var results = document.getElementById("results");
 var stored = document.getElementById("history");
 var clearStorage = document.getElementById("clearStorage");
 
-// Empty array for the localStorage
+
+// Empty array for the localStorage to in later
 var cities = [];
 
-// Get Local Storage from Previous Searches
-
-//Get any local Storage from previous searches
+//Get any local Storage from previous searches on load
 if (localStorage.getItem("previousSearchData")) {
   cities = localStorage.getItem("previousSearchData");
 
@@ -42,6 +42,7 @@ if (localStorage.getItem("previousSearchData")) {
     keepCity.classList.add("save");
     keepCity.innerHTML = userHistory[i];
     stored.append(keepCity);
+
   }
 }
 
@@ -90,6 +91,7 @@ function getJobs() {
   })
     .then(function (res) {
       return res.json();
+
     })
     .then(function (jobs) {
       // Creates cards in the HTML for each job and displays the results
@@ -122,6 +124,7 @@ function getJobs() {
         // Salary
         var salaryEl = document.createElement("div");
         salaryEl.textContent =
+
           "Salary:  £" +
           jobs.results[i].minimumSalary +
           "-" +
@@ -147,7 +150,7 @@ function getJobs() {
 }
 
 getJobs();
-
+   
 // Search on Page with Filters
 newSearch = function (event) {
   event.preventDefault();
