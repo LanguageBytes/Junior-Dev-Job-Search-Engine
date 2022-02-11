@@ -27,43 +27,67 @@
    
                                                             <!-- Nav Bar -->
 
-    <nav class="top-0 absolute z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 ">
-      <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
-        <div class="w-full text-white relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
+  <nav
+  class="top-0 absolute z-50 w-full flex flex-wrap items-center justify-between px-2 py-3"
+>
+  <div
+    class="container px-4 mx-auto flex flex-wrap items-center justify-between"
+  >
+    <div
+      class="w-full text-white relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start"
+    >
+      <!-- Title -->
+      <h1> JUNIOR DEV HUB &nbsp; < / > </h1>
 
-          <!-- Title -->
-          <h1> JUNIOR DEV HUB &nbsp; < / > </h1>
-            
-          <!-- When the screen size is smaller, the nav bar will collapse into a hamburger (see Javascript for function)-->
-            <button class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
-            type="button" onclick="toggleNavbar('example-collapse-navbar')"> <i class="text-white fas fa-bars"></i>
-           </button>
-        </div>
+      <!-- When the screen size is smaller, the nav bar will collapse into a hamburger (see Javascript for function)-->
+      <button
+        class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
+        type="button"
+        onclick="toggleNavbar('example-collapse-navbar')"
+      >
+        <i class="text-white fas fa-bars"></i>
+      </button>
+    </div>
 
-        <!-- Nav Right-hand Side -->
-        <div class="lg:flex flex-grow items-center lg:bg-transparent bg-bluegray-200 lg:shadow-none hidden"
-          id="example-collapse-navbar">
-     
-          <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
-            <!-- Search-->
-            <li class="flex items-center">
-              <a
-                class="lg:text-white lg:hover:text-gray-300 text-black px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                href=""> Search </a>
-            <!-- Browse Jobs -->
-            <li class="flex items-center">
-              <a
-                class="lg:text-white lg:hover:text-gray-300 text-black px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                href="search-results.html"> Browse Jobs </a>
-            </li>
+    <!-- Nav Right-hand Side -->
+    <div
+      class="lg:flex flex-grow items-center lg:bg-transparent bg-blueGray-200 lg:shadow-none hidden"
+      id="example-collapse-navbar"
+    >
+      <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
+        <!-- Search-->
+        <li class="flex items-center">
+          <a
+            class="lg:text-white lg:hover:text-gray-300 text-black px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+            href="index.html"
+          >
+            Search
+          </a>
+        </li>
 
-            <li class="flex items-center">
-              <a
-                class="lg:text-white lg:hover:text-gray-300 text-black px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                href="search-results.html"> Community </a>
-            </li>
+        <!-- Browse Jobs -->
+        <li class="flex items-center">
+          <a
+            class="lg:text-white lg:hover:text-gray-300 text-black px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+            href="search-results.html"
+          >
+            Browse Jobs
+          </a>
+        </li>
 
-
+        <!-- Career Advice -->
+        <li class="flex items-center">
+          <a
+            class="lg:text-white lg:hover:text-gray-300 text-black px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+            href=""
+          >
+            Community
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
             <!-- Career Advice -->
             <!-- <li class="flex items-center">
               <a
@@ -85,7 +109,7 @@
       <!-- Hero Image -->
       <div
         class="absolute top-0 w-full h-full bg-center bg-cover"
-        style='background-image:url("assets/images/juniordevteam6.png");'alt='Homepage Search (Image of Laptop Keyboard)'
+        style='background-image:url("assets/images/juniordevteam6.png");'alt='Homepage Search (Image of Laptop Keyboard and Junior Developers)'
         >
       <!-- This adds a black overlay on the cover image to make it stand out less-->
          <span
