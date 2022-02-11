@@ -60,8 +60,6 @@ function initMap() {
   });
 }
 
-console.log("hello");
-
 // Get Jobs
 
 //id variables from HTML
@@ -72,8 +70,6 @@ var results = document.getElementById("results");
 // Make a Search and Get Jobs
 var makeSearch = function (event) {
   event.preventDefault();
-  console.log("button clicked");
-  // window.location.href="search-results.html"
 
   // Get search input from user
   var userLocationInput = locationInput.value.trim();
@@ -107,4 +103,3 @@ function toggleNavbar(collapseID) {
   document.getElementById(collapseID).classList.toggle("py-3");
   document.getElementById(collapseID).classList.toggle("px-6");
 }
-
