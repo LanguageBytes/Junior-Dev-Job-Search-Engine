@@ -1,4 +1,4 @@
-# <p align = "center" > Junior Developer Job Search Engine </p>
+# <p align = "center" > Junior Dev Hub </p>
 
 
  <p align="center">
